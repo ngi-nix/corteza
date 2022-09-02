@@ -11,7 +11,7 @@
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
     in
     {
-      packages.x86_64-linux.corteza = (with pkgs;
+      packages.x86_64-linux = with pkgs;
         let
           meta = with lib; {
             description = "Corteza is the only 100% free, open-source, standardized and enterprise-grade Low-code platform";
@@ -48,21 +48,24 @@
           # reporter app missing
           # discovery app missing
         in
-        stdenv.mkDerivation rec {
-          pname = "corteza";
-          inherit version meta;
-          src = ./.;
-          installPhase = ''
-            mkdir -p $out/webapp/admin $out/webapp/compose $out/webapp/workflow
-            cp -r ${server}/* $out
-            tar -xzmokf ${one} --directory=$out/webapp
-            tar -xzmokf ${admin} --directory=$out/webapp/admin
-            tar -xzmokf ${compose} --directory=$out/webapp/compose
-            tar -xzmokf ${workflow} --directory=$out/webapp/workflow
-          '';
-        });
+        {
+          inherit server;
+          corteza = stdenv.mkDerivation
+            rec {
+              pname = "corteza";
+              inherit version meta;
+              src = ./.;
+              installPhase = ''
+                mkdir -p $out/webapp/admin $out/webapp/compose $out/webapp/workflow
+                cp -r ${server}/* $out
+                tar -xzmokf ${one} --directory=$out/webapp
+                tar -xzmokf ${admin} --directory=$out/webapp/admin
+                tar -xzmokf ${compose} --directory=$out/webapp/compose
+                tar -xzmokf ${workflow} --directory=$out/webapp/workflow
+              '';
+            };
+        };
 
       defaultPackage.x86_64-linux = self.packages.x86_64-linux.corteza;
-
     };
 }
