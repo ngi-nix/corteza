@@ -44,6 +44,9 @@
           compose = fetchurl { url = webapp "compose"; sha256 = "sha256-2DPzWmoFfnIfCi/VLATyD4DfzMx+NkRwqGPOZoOxFrg="; };
           workflow = fetchurl { url = webapp "workflow"; sha256 = "sha256-VuViU2twRMx0/bpamUZUt16XanK6rmHRaa8pm4WVTus="; };
           one = fetchurl { url = webapp "one"; sha256 = "sha256-M4R5aaDh9bBkjlCJA7jOUwgFGyzrPhMbAIBCk68EtTg="; };
+          # privacy app missing
+          # reporter app missing
+          # discovery app missing
         in
         stdenv.mkDerivation rec {
           pname = "corteza";
