@@ -1,0 +1,37 @@
+import:
+  - github.com/cortezaproject/corteza-server/pkg/discovery/types
+
+types:
+  type: types.ResourceActivity
+  filterType: types.ResourceActivityFilter
+
+fields:
+  - { field: ID }
+  - { field: ResourceID }
+  - { field: ResourceType }
+  - { field: ResourceAction }
+  - { field: Timestamp,       type: "time.Time" }
+  - { field: Meta,            type: "types.JSONText" }
+
+rdbms:
+  alias: ral
+  table: resource_activity_log
+  customFilterConverter: true
+  mapFields:
+    Timestamp: { column: ts }
+    Meta:      { column: meta }
+
+search:
+  enablePaging: false
+  enableSorting: false
+  enableFilterCheckFunction: false
+
+update:
+  enable: false
+
+upsert:
+  enable: false
+
+delete:
+  enable: false
+

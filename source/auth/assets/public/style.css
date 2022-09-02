@@ -1,0 +1,144 @@
+:root {
+  --primary: #0B344E;
+  --primary-hover: #061E2C;
+  --light: #E4E9EF;
+  --danger: #E24646;
+  --body-margin: 2.6vw;
+}
+
+html {
+  height: 100%;
+}
+
+
+body {
+  margin-top: var(--body-margin);
+  font-family: 'Poppins', sans-serif;
+  min-height: calc(100% - var(--body-margin));
+  display: grid;
+  grid-template-rows: auto;
+}
+
+.logo {
+  max-height: 45px;
+  max-width: 75%;
+}
+
+.version {
+  bottom: 0;
+  right: 0;
+}
+
+.user {
+  top: 0;
+  right: 0;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins';
+  font-weight: 600;
+}
+
+thead th,
+legend,
+label,
+a,
+.btn {
+  font-family: 'Poppins';
+}
+
+strong,
+b,
+.font-weight-bold {
+  font-family: 'Poppins';
+  font-weight: 600;
+}
+
+/* over-ride default variables colors */
+a, label, .text-primary {
+  color: var(--primary) !important;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+.text-danger {
+  color: var(--danger) !important;
+}
+
+.card,
+.card-header {
+  border-radius: 1rem;
+}
+
+.btn-primary,
+.bg-primary {
+  background-color: var(--primary)!important;
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover)!important;
+  border-color: var(--primary-hover);
+}
+
+.btn-light,
+.bg-light,
+.badge-light {
+  background-color: var(--light)!important;
+  border-color: var(--light);
+}
+
+.btn-danger,
+.bg-danger {
+  background-color: var(--danger)!important;
+  border-color: var(--danger);
+}
+
+.btn-lg {
+  font-size: 1rem;
+}
+
+/* Navigation */
+.nav-item.active {
+  border-bottom: 4px solid var(--primary);
+}
+
+/* form styling*/
+.form-control {
+  border: 2px solid var(--light);
+  padding: 1.25rem 0.75rem;
+}
+
+select.form-control {
+  padding: 0 0.5rem;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: var(--primary);
+}
+
+.auth {
+  width: 100%;
+  max-width: 650px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+input:-webkit-autofill::first-line {
+  font-family: 'Poppins';
+  font-size: 1rem;
+  color: #495057;
+}
+
+/* position bootstrap icons on buttons centrally */
+[class^="bi-"]::before, [class*=" bi-"]::before {
+  vertical-align: middle;
+  line-height: 1.6;
+}

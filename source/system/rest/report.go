@@ -1,0 +1,259 @@
+package rest
+
+import (
+	"context"
+	"encoding/json"
+	"strings"
+
+	"github.com/cortezaproject/corteza-server/pkg/api"
+	"github.com/cortezaproject/corteza-server/pkg/expr"
+	"github.com/cortezaproject/corteza-server/pkg/filter"
+	"github.com/cortezaproject/corteza-server/pkg/report"
+	"github.com/cortezaproject/corteza-server/system/rest/request"
+	"github.com/cortezaproject/corteza-server/system/service"
+	"github.com/cortezaproject/corteza-server/system/types"
+	"github.com/pkg/errors"
+	"github.com/spf13/cast"
+)
+
+var _ = errors.Wrap
+
+type (
+	Report struct {
+		report reportService
+		ac     reportAccessController
+	}
+
+	reportService interface {
+		LookupByID(ctx context.Context, ID uint64) (app *types.Report, err error)
+		Search(ctx context.Context, filter types.ReportFilter) (aa types.ReportSet, f types.ReportFilter, err error)
+		Create(ctx context.Context, new *types.Report) (app *types.Report, err error)
+		Update(ctx context.Context, upd *types.Report) (app *types.Report, err error)
+		Delete(ctx context.Context, ID uint64) (err error)
+		Undelete(ctx context.Context, ID uint64) (err error)
+		Run(ctx context.Context, ID uint64, dd report.FrameDefinitionSet) (rr []*report.Frame, err error)
+		DescribeFresh(ctx context.Context, src types.ReportDataSourceSet, st report.StepDefinitionSet, sources ...string) (out report.FrameDescriptionSet, err error)
+	}
+
+	reportAccessController interface {
+		CanGrant(context.Context) bool
+
+		CanReadReport(context.Context, *types.Report) bool
+		CanUpdateReport(context.Context, *types.Report) bool
+		CanDeleteReport(context.Context, *types.Report) bool
+		CanRunReport(context.Context, *types.Report) bool
+	}
+
+	reportPayload struct {
+		*types.Report
+
+		CanGrant        bool `json:"canGrant"`
+		CanReadReport   bool `json:"canReadReport"`
+		CanUpdateReport bool `json:"canUpdateReport"`
+		CanDeleteReport bool `json:"canDeleteReport"`
+		CanRunReport    bool `json:"canRunReport"`
+	}
+
+	reportSetPayload struct {
+		Filter types.ReportFilter `json:"filter"`
+		Set    []*reportPayload   `json:"set"`
+	}
+
+	reportFramePayload struct {
+		Frames []*rspFrame `json:"frames"`
+	}
+
+	rspFrame struct {
+		*report.Frame
+		Rows []rspRows `json:"rows"`
+	}
+
+	rspRows struct {
+		row  report.FrameRow
+		cols report.FrameColumnSet
+	}
+)
+
+func (Report) New() *Report {
+	return &Report{
+		report: service.DefaultReport,
+		ac:     service.DefaultAccessControl,
+	}
+}
+
+func (ctrl *Report) List(ctx context.Context, r *request.ReportList) (interface{}, error) {
+	var (
+		err error
+		f   = types.ReportFilter{
+			Handle:  r.Handle,
+			Labels:  r.Labels,
+			Deleted: filter.State(r.Deleted),
+		}
+	)
+
+	if f.Paging, err = filter.NewPaging(r.Limit, r.PageCursor); err != nil {
+		return nil, err
+	}
+
+	if f.Sorting, err = filter.NewSorting(r.Sort); err != nil {
+		return nil, err
+	}
+
+	set, filter, err := ctrl.report.Search(ctx, f)
+	return ctrl.makeFilterPayload(ctx, set, filter, err)
+}
+
+func (ctrl *Report) Create(ctx context.Context, r *request.ReportCreate) (interface{}, error) {
+	var (
+		err error
+		app = &types.Report{
+			Handle:    r.Handle,
+			Meta:      r.Meta,
+			Scenarios: r.Scenarios,
+			Sources:   r.Sources,
+			Blocks:    r.Blocks,
+			Labels:    r.Labels,
+		}
+	)
+
+	app, err = ctrl.report.Create(ctx, app)
+	return ctrl.makePayload(ctx, app, err)
+}
+
+func (ctrl *Report) Update(ctx context.Context, r *request.ReportUpdate) (interface{}, error) {
+	var (
+		err error
+		app = &types.Report{
+			ID:        r.ReportID,
+			Handle:    r.Handle,
+			Meta:      r.Meta,
+			Scenarios: r.Scenarios,
+			Sources:   r.Sources,
+			Blocks:    r.Blocks,
+			Labels:    r.Labels,
+		}
+	)
+
+	app, err = ctrl.report.Update(ctx, app)
+	return ctrl.makePayload(ctx, app, err)
+}
+
+func (ctrl *Report) Read(ctx context.Context, r *request.ReportRead) (interface{}, error) {
+	app, err := ctrl.report.LookupByID(ctx, r.ReportID)
+	return ctrl.makePayload(ctx, app, err)
+}
+
+func (ctrl *Report) Delete(ctx context.Context, r *request.ReportDelete) (interface{}, error) {
+	return api.OK(), ctrl.report.Delete(ctx, r.ReportID)
+}
+
+func (ctrl *Report) Undelete(ctx context.Context, r *request.ReportUndelete) (interface{}, error) {
+	return api.OK(), ctrl.report.Undelete(ctx, r.ReportID)
+}
+
+func (ctrl *Report) Describe(ctx context.Context, r *request.ReportDescribe) (interface{}, error) {
+	return ctrl.report.DescribeFresh(ctx, r.Sources, r.Steps, r.Describe...)
+}
+
+func (ctrl *Report) Run(ctx context.Context, r *request.ReportRun) (interface{}, error) {
+	rr, err := ctrl.report.Run(ctx, r.ReportID, r.Frames)
+	return ctrl.makeReportFramePayload(ctx, rr, err)
+}
+
+func (ctrl Report) makePayload(ctx context.Context, m *types.Report, err error) (*reportPayload, error) {
+	if err != nil || m == nil {
+		return nil, err
+	}
+
+	return &reportPayload{
+		Report: m,
+
+		CanGrant: ctrl.ac.CanGrant(ctx),
+
+		CanReadReport:   ctrl.ac.CanReadReport(ctx, m),
+		CanUpdateReport: ctrl.ac.CanUpdateReport(ctx, m),
+		CanDeleteReport: ctrl.ac.CanDeleteReport(ctx, m),
+		CanRunReport:    ctrl.ac.CanRunReport(ctx, m),
+	}, nil
+}
+
+func (ctrl Report) makeFilterPayload(ctx context.Context, nn types.ReportSet, f types.ReportFilter, err error) (*reportSetPayload, error) {
+	if err != nil {
+		return nil, err
+	}
+
+	msp := &reportSetPayload{Filter: f, Set: make([]*reportPayload, len(nn))}
+
+	for i := range nn {
+		msp.Set[i], _ = ctrl.makePayload(ctx, nn[i], nil)
+	}
+
+	return msp, nil
+}
+
+func (ctrl Report) makeReportFramePayload(ctx context.Context, ff []*report.Frame, err error) (*reportFramePayload, error) {
+	if err != nil || len(ff) == 0 {
+		return nil, err
+	}
+
+	out := make([]*rspFrame, len(ff))
+	for i, f := range ff {
+		out[i] = &rspFrame{
+			Frame: f,
+		}
+
+		// We're including cols here so we can use then when marshling JSON
+		for _, r := range f.Rows {
+			out[i].Rows = append(out[i].Rows, rspRows{
+				row:  r,
+				cols: f.Columns,
+			})
+		}
+	}
+
+	return &reportFramePayload{
+		Frames: out,
+	}, nil
+}
+
+func (rr rspRows) MarshalJSON() (out []byte, err error) {
+	row := rr.row
+	cc := rr.cols
+
+	aux := make([]string, len(row))
+	var ss []string
+
+	enc := func(e expr.TypedValue) error {
+		s, err := cast.ToStringE(e.Get())
+		if err != nil {
+			return err
+		}
+
+		ss = append(ss, s)
+		return nil
+	}
+
+	for i, c := range row {
+		ss = make([]string, 0, 2)
+		if c == nil {
+			continue
+		}
+
+		switch cc := c.(type) {
+		case *expr.Array:
+			for _, v := range cc.GetValue() {
+				if err = enc(v); err != nil {
+					return
+				}
+			}
+		default:
+			if err = enc(c); err != nil {
+				return
+			}
+		}
+
+		aux[i] = strings.Join(ss, cc[i].MultivalueDelimiter)
+	}
+
+	return json.Marshal(aux)
+}

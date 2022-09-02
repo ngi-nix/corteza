@@ -1,0 +1,10 @@
+namespaces:
+  ns1:
+    name: ns1 name
+
+    allow:
+      authenticated:
+      - op1
+    deny:
+      authenticated:
+      - op2

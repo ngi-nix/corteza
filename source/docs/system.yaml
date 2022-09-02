@@ -1,0 +1,2012 @@
+openapi: 3.0.0
+info:
+  title: Corteza system API
+  description: Corteza system REST API definition
+  version: 2021.3
+  contact:
+    email: contact@mail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  /system/auth/impersonate:
+    post:
+      tags:
+        - Authentication
+      summary: Impersonate a user
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_0
+                userID:
+                  type: string
+                  description: ID of the impersonated user
+              required:
+                - userID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_0
+  /system/auth/clients/:
+    get:
+      tags:
+        - Authentication clients
+      summary: List clients
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: handle
+          description: Client handle
+          required: false
+          schema: &ref_1
+            type: string
+        - in: query
+          name: deleted
+          description: 'Exclude (0, default), include (1) or return only (2) deleted roles'
+          required: false
+          schema: &ref_2
+            type: string
+        - in: query
+          name: labels
+          description: Labels
+          required: false
+          schema: *ref_1
+        - in: query
+          name: limit
+          description: Limit
+          required: false
+          schema: *ref_2
+        - in: query
+          name: pageCursor
+          description: Page cursor
+          required: false
+          schema: *ref_1
+        - in: query
+          name: sort
+          description: Sort items
+          required: false
+          schema: *ref_1
+    post:
+      tags:
+        - Authentication clients
+      summary: Create client
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_3
+                handle:
+                  type: string
+                  description: Client handle
+                meta:
+                  type: string
+                  description: Additional info
+                validGrant:
+                  type: string
+                  description: Valid grants (authorization_code
+                redirectURI:
+                  type: string
+                  description: Space delimited list of redirect URIs
+                scope:
+                  type: string
+                  description: Space delimited list of scopes
+                trusted:
+                  type: boolean
+                  description: Is client trusted (skip authorization)
+                enabled:
+                  type: boolean
+                  description: Is client enabled
+                validFrom:
+                  type: string
+                  format: date-time
+                  description: Date and time from when client becomes valid
+                expiresAt:
+                  type: string
+                  format: date-time
+                  description: Date and time from client is no logner valid
+                security:
+                  type: string
+                  description: Security settings
+                labels:
+                  type: string
+                  description: Labels
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_3
+  '/system/auth/clients/{clientID}':
+    put:
+      tags:
+        - Authentication clients
+      summary: Update user details
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: clientID
+          description: Client ID
+          required: true
+          schema: &ref_5
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_4
+                handle:
+                  type: string
+                  description: Client handle
+                meta:
+                  type: string
+                  description: Additional info
+                validGrant:
+                  type: string
+                  description: Valid grants (authorization_code
+                redirectURI:
+                  type: string
+                  description: Space delimited list of redirect URIs
+                scope:
+                  type: string
+                  description: Space delimited list of scopes
+                trusted:
+                  type: boolean
+                  description: Is client trusted (skip authorization)
+                enabled:
+                  type: boolean
+                  description: Is client enabled
+                validFrom:
+                  type: string
+                  format: date-time
+                  description: Date and time from when client becomes valid
+                expiresAt:
+                  type: string
+                  format: date-time
+                  description: Date and time from client is no logner valid
+                security:
+                  type: string
+                  description: Security settings
+                labels:
+                  type: string
+                  description: Labels
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_4
+    get:
+      tags:
+        - Authentication clients
+      summary: Read client details
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: clientID
+          description: Client ID
+          required: true
+          schema: *ref_5
+    delete:
+      tags:
+        - Authentication clients
+      summary: Remove client
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: clientID
+          description: Client ID
+          required: true
+          schema: *ref_5
+  '/system/auth/clients/{clientID}/undelete':
+    post:
+      tags:
+        - Authentication clients
+      summary: Undelete client
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: clientID
+          description: Client ID
+          required: true
+          schema: *ref_5
+  '/system/auth/clients/{clientID}/secret':
+    post:
+      tags:
+        - Authentication clients
+      summary: Regenerate client's secret
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: clientID
+          description: Client ID
+          required: true
+          schema: *ref_5
+    get:
+      tags:
+        - Authentication clients
+      summary: Exposes client's secret
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: clientID
+          description: Client ID
+          required: true
+          schema: *ref_5
+  /system/settings/:
+    get:
+      tags:
+        - Settings
+      summary: List settings
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: prefix
+          description: Key prefix
+          required: false
+          schema: *ref_1
+    patch:
+      tags:
+        - Settings
+      summary: Update settings
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_6
+                values:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      value:
+                        type: string
+                  description: >-
+                    Array of new settings: `[{ name: ..., value: ... }]`. Omit
+                    value to remove setting
+              required:
+                - values
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_6
+  '/system/settings/{key}':
+    get:
+      tags:
+        - Settings
+      summary: Get a value for a key
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: key
+          description: Setting key
+          required: true
+          schema: *ref_1
+        - in: query
+          name: ownerID
+          description: Owner ID
+          required: false
+          schema: *ref_5
+    post:
+      tags:
+        - Settings
+      summary: Set value for specific setting
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: key
+          description: Key
+          required: true
+          schema: *ref_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_7
+                upload:
+                  type: string
+                  format: binary
+                  description: File to upload
+                ownerID:
+                  type: string
+                  description: Owner ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_7
+  /system/settings/current:
+    get:
+      tags:
+        - Settings
+      summary: Current compose settings
+      responses:
+        '200':
+          description: OK
+  /system/subscription/:
+    get:
+      tags:
+        - Subscription
+      summary: Returns current subscription status
+      responses:
+        '200':
+          description: OK
+  /system/roles/:
+    get:
+      tags:
+        - Roles
+      summary: List roles
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: query
+          description: Search query
+          required: false
+          schema: *ref_1
+        - in: query
+          name: deleted
+          description: 'Exclude (0, default), include (1) or return only (2) deleted roles'
+          required: false
+          schema: *ref_2
+        - in: query
+          name: archived
+          description: 'Exclude (0, default), include (1) or return only (2) achived roles'
+          required: false
+          schema: *ref_2
+        - in: query
+          name: labels
+          description: Labels
+          required: false
+          schema: *ref_1
+        - in: query
+          name: limit
+          description: Limit
+          required: false
+          schema: *ref_2
+        - in: query
+          name: pageCursor
+          description: Page cursor
+          required: false
+          schema: *ref_1
+        - in: query
+          name: sort
+          description: Sort items
+          required: false
+          schema: *ref_1
+    post:
+      tags:
+        - Roles
+      summary: Update role details
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_8
+                name:
+                  type: string
+                  description: Name of Role
+                handle:
+                  type: string
+                  description: Handle for Role
+                members:
+                  type: array
+                  items: *ref_1
+                  description: Role member IDs
+                labels:
+                  type: string
+                  description: Labels
+              required:
+                - name
+                - handle
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_8
+  '/system/roles/{roleID}':
+    put:
+      tags:
+        - Roles
+      summary: Update role details
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: roleID
+          description: Role ID
+          required: true
+          schema: *ref_5
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_9
+                name:
+                  type: string
+                  description: Name of Role
+                handle:
+                  type: string
+                  description: Handle for Role
+                members:
+                  type: array
+                  items: *ref_1
+                  description: Role member IDs
+                labels:
+                  type: string
+                  description: Labels
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_9
+    get:
+      tags:
+        - Roles
+      summary: Read role details and memberships
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: roleID
+          description: Role ID
+          required: true
+          schema: *ref_5
+    delete:
+      tags:
+        - Roles
+      summary: Remove role
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: roleID
+          description: Role ID
+          required: true
+          schema: *ref_5
+  '/system/roles/{roleID}/archive':
+    post:
+      tags:
+        - Roles
+      summary: Archive role
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: roleID
+          description: Role ID
+          required: true
+          schema: *ref_5
+  '/system/roles/{roleID}/unarchive':
+    post:
+      tags:
+        - Roles
+      summary: Unarchive role
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: roleID
+          description: Role ID
+          required: true
+          schema: *ref_5
+  '/system/roles/{roleID}/undelete':
+    post:
+      tags:
+        - Roles
+      summary: Undelete role
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: roleID
+          description: Role ID
+          required: true
+          schema: *ref_5
+  '/system/roles/{roleID}/move':
+    post:
+      tags:
+        - Roles
+      summary: Move role to different organisation
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: roleID
+          description: Role ID
+          required: true
+          schema: *ref_5
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_10
+                organisationID:
+                  type: string
+                  description: Role ID
+              required:
+                - organisationID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_10
+  '/system/roles/{roleID}/merge':
+    post:
+      tags:
+        - Roles
+      summary: Merge one role into another
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: roleID
+          description: Source Role ID
+          required: true
+          schema: *ref_5
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_11
+                destination:
+                  type: string
+                  description: Destination Role ID
+              required:
+                - destination
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_11
+  '/system/roles/{roleID}/members':
+    get:
+      tags:
+        - Roles
+      summary: Returns all role members
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: roleID
+          description: Source Role ID
+          required: true
+          schema: *ref_5
+  '/system/roles/{roleID}/member/{userID}':
+    post:
+      tags:
+        - Roles
+      summary: Add member to a role
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: roleID
+          description: Source Role ID
+          required: true
+          schema: *ref_5
+        - in: path
+          name: userID
+          description: User ID
+          required: true
+          schema: *ref_5
+    delete:
+      tags:
+        - Roles
+      summary: Remove member from a role
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: roleID
+          description: Source Role ID
+          required: true
+          schema: *ref_5
+        - in: path
+          name: userID
+          description: User ID
+          required: true
+          schema: *ref_5
+  '/system/roles/{roleID}/trigger':
+    post:
+      tags:
+        - Roles
+      summary: 'Fire system:role trigger'
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: roleID
+          description: ID
+          required: true
+          schema: *ref_5
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_12
+                script:
+                  type: string
+                  description: Script to execute
+              required:
+                - script
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_12
+  /system/users/:
+    get:
+      tags:
+        - Users
+      summary: Search users (Directory)
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: userID
+          description: Filter by user ID
+          required: false
+          schema:
+            type: array
+            items: *ref_1
+        - in: query
+          name: roleID
+          description: Filter by role membership
+          required: false
+          schema:
+            type: array
+            items: *ref_1
+        - in: query
+          name: query
+          description: Search query to match against users
+          required: false
+          schema: *ref_1
+        - in: query
+          name: username
+          description: Search username to match against users
+          required: false
+          schema: *ref_1
+        - in: query
+          name: email
+          description: Search email to match against users
+          required: false
+          schema: *ref_1
+        - in: query
+          name: handle
+          description: Search handle to match against users
+          required: false
+          schema: *ref_1
+        - in: query
+          name: kind
+          description: 'Kind (normal, bot)'
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: incDeleted
+          description: '[Deprecated] Include deleted users (requires ''access'' permission)'
+          required: false
+          schema: &ref_13
+            type: boolean
+        - in: query
+          name: incSuspended
+          description: '[Deprecated] Include suspended users'
+          required: false
+          schema: *ref_13
+        - in: query
+          name: deleted
+          description: 'Exclude (0, default), include (1) or return only (2) deleted users'
+          required: false
+          schema: *ref_2
+        - in: query
+          name: suspended
+          description: 'Exclude (0, default), include (1) or return only (2) suspended users'
+          required: false
+          schema: *ref_2
+        - in: query
+          name: labels
+          description: Labels
+          required: false
+          schema: *ref_1
+        - in: query
+          name: limit
+          description: Limit
+          required: false
+          schema: *ref_2
+        - in: query
+          name: pageCursor
+          description: Page cursor
+          required: false
+          schema: *ref_1
+        - in: query
+          name: sort
+          description: Sort items
+          required: false
+          schema: *ref_1
+    post:
+      tags:
+        - Users
+      summary: Create user
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_14
+                email:
+                  type: string
+                  description: Email
+                name:
+                  type: string
+                  description: Name
+                handle:
+                  type: string
+                  description: Handle
+                kind:
+                  type: string
+                  description: 'Kind (normal, bot)'
+                labels:
+                  type: string
+                  description: Labels
+              required:
+                - email
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_14
+  '/system/users/{userID}':
+    put:
+      tags:
+        - Users
+      summary: Update user details
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: userID
+          description: User ID
+          required: true
+          schema: *ref_5
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_15
+                email:
+                  type: string
+                  description: Email
+                name:
+                  type: string
+                  description: Name
+                handle:
+                  type: string
+                  description: Handle
+                kind:
+                  type: string
+                  description: 'Kind (normal, bot)'
+                labels:
+                  type: string
+                  description: Labels
+              required:
+                - email
+                - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_15
+    get:
+      tags:
+        - Users
+      summary: Read user details
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: userID
+          description: User ID
+          required: true
+          schema: *ref_5
+    delete:
+      tags:
+        - Users
+      summary: Remove user
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: userID
+          description: User ID
+          required: true
+          schema: *ref_5
+  '/system/users/{userID}/suspend':
+    post:
+      tags:
+        - Users
+      summary: Suspend user
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: userID
+          description: User ID
+          required: true
+          schema: *ref_5
+  '/system/users/{userID}/unsuspend':
+    post:
+      tags:
+        - Users
+      summary: Unsuspend user
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: userID
+          description: User ID
+          required: true
+          schema: *ref_5
+  '/system/users/{userID}/undelete':
+    post:
+      tags:
+        - Users
+      summary: Undelete user
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: userID
+          description: User ID
+          required: true
+          schema: *ref_5
+  '/system/users/{userID}/password':
+    post:
+      tags:
+        - Users
+      summary: Set's or changes user's password
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: userID
+          description: User ID
+          required: true
+          schema: *ref_5
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_16
+                password:
+                  type: string
+                  format: password
+                  description: New password
+              required:
+                - password
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_16
+  '/system/users/{userID}/membership':
+    get:
+      tags:
+        - Users
+      summary: Add member to a role
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: userID
+          description: User ID
+          required: true
+          schema: *ref_5
+  '/system/users/{userID}/membership/{roleID}':
+    post:
+      tags:
+        - Users
+      summary: Add role to a user
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: roleID
+          description: Role ID
+          required: true
+          schema: *ref_5
+        - in: path
+          name: userID
+          description: User ID
+          required: true
+          schema: *ref_5
+    delete:
+      tags:
+        - Users
+      summary: Remove role from a user
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: roleID
+          description: Role ID
+          required: true
+          schema: *ref_5
+        - in: path
+          name: userID
+          description: User ID
+          required: true
+          schema: *ref_5
+  '/system/users/{userID}/trigger':
+    post:
+      tags:
+        - Users
+      summary: 'Fire system:user trigger'
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: userID
+          description: ID
+          required: true
+          schema: *ref_5
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_17
+                script:
+                  type: string
+                  description: Script to execute
+              required:
+                - script
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_17
+  /system/application/:
+    get:
+      tags:
+        - Applications
+      summary: List applications
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: name
+          description: Application name
+          required: false
+          schema: *ref_1
+        - in: query
+          name: query
+          description: Filter applications
+          required: false
+          schema: *ref_1
+        - in: query
+          name: deleted
+          description: 'Exclude (0, default), include (1) or return only (2) deleted roles'
+          required: false
+          schema: *ref_2
+        - in: query
+          name: labels
+          description: Labels
+          required: false
+          schema: *ref_1
+        - in: query
+          name: limit
+          description: Limit
+          required: false
+          schema: *ref_2
+        - in: query
+          name: pageCursor
+          description: Page cursor
+          required: false
+          schema: *ref_1
+        - in: query
+          name: sort
+          description: Sort items
+          required: false
+          schema: *ref_1
+    post:
+      tags:
+        - Applications
+      summary: Create application
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_18
+                name:
+                  type: string
+                  description: Application name
+                enabled:
+                  type: boolean
+                  description: Enabled
+                unify:
+                  type: string
+                  format: json
+                  description: Unify properties
+                config:
+                  type: string
+                  format: json
+                  description: Arbitrary JSON holding application configuration
+                labels:
+                  type: string
+                  description: Labels
+              required:
+                - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_18
+  '/system/application/{applicationID}':
+    put:
+      tags:
+        - Applications
+      summary: Update user details
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: applicationID
+          description: Application ID
+          required: true
+          schema: *ref_5
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_19
+                name:
+                  type: string
+                  description: Email
+                enabled:
+                  type: boolean
+                  description: Enabled
+                unify:
+                  type: string
+                  format: json
+                  description: Unify properties
+                config:
+                  type: string
+                  format: json
+                  description: Arbitrary JSON holding application configuration
+                labels:
+                  type: string
+                  description: Labels
+              required:
+                - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_19
+    get:
+      tags:
+        - Applications
+      summary: Read application details
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: applicationID
+          description: Application ID
+          required: true
+          schema: *ref_5
+    delete:
+      tags:
+        - Applications
+      summary: Remove application
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: applicationID
+          description: Application ID
+          required: true
+          schema: *ref_5
+  '/system/application/{applicationID}/undelete':
+    post:
+      tags:
+        - Applications
+      summary: Undelete application
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: applicationID
+          description: Application ID
+          required: true
+          schema: *ref_5
+  '/system/application/{applicationID}/trigger':
+    post:
+      tags:
+        - Applications
+      summary: 'Fire system:application trigger'
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: applicationID
+          description: ID
+          required: true
+          schema: *ref_5
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_20
+                script:
+                  type: string
+                  description: Script to execute
+              required:
+                - script
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_20
+  /system/permissions/:
+    get:
+      tags:
+        - Permissions
+      summary: Retrieve defined permissions
+      responses:
+        '200':
+          description: OK
+  /system/permissions/effective:
+    get:
+      tags:
+        - Permissions
+      summary: Effective rules for current user
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: resource
+          description: Show only rules for a specific resource
+          required: false
+          schema: *ref_1
+  '/system/permissions/{roleID}/rules':
+    get:
+      tags:
+        - Permissions
+      summary: Retrieve role permissions
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: roleID
+          description: Role ID
+          required: true
+          schema: *ref_5
+    delete:
+      tags:
+        - Permissions
+      summary: Remove all defined role permissions
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: roleID
+          description: Role ID
+          required: true
+          schema: *ref_5
+    patch:
+      tags:
+        - Permissions
+      summary: Update permission settings
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: roleID
+          description: Role ID
+          required: true
+          schema: *ref_5
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_21
+                rules:
+                  type: string
+                  description: List of permission rules to set
+              required:
+                - rules
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_21
+  /system/reminder/:
+    get:
+      tags:
+        - Reminders
+      summary: List/read reminders
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: reminderID
+          description: Filter by reminder ID
+          required: false
+          schema:
+            type: array
+            items: *ref_1
+        - in: query
+          name: resource
+          description: Only reminders of a specific resource
+          required: false
+          schema: *ref_1
+        - in: query
+          name: assignedTo
+          description: Only reminders for a given user
+          required: false
+          schema: *ref_5
+        - in: query
+          name: scheduledFrom
+          description: Only reminders from this time (included)
+          required: false
+          schema: &ref_22
+            type: string
+            format: date-time
+        - in: query
+          name: scheduledUntil
+          description: Only reminders up to this time (included)
+          required: false
+          schema: *ref_22
+        - in: query
+          name: scheduledOnly
+          description: Only scheduled reminders
+          required: false
+          schema: *ref_13
+        - in: query
+          name: excludeDismissed
+          description: Filter out dismissed reminders
+          required: false
+          schema: *ref_13
+        - in: query
+          name: limit
+          description: Limit
+          required: false
+          schema: *ref_2
+        - in: query
+          name: pageCursor
+          description: Page cursor
+          required: false
+          schema: *ref_1
+        - in: query
+          name: sort
+          description: Sort items
+          required: false
+          schema: *ref_1
+    post:
+      tags:
+        - Reminders
+      summary: Add new reminder
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_23
+                resource:
+                  type: string
+                  description: Resource
+                assignedTo:
+                  type: string
+                  description: Assigned To
+                payload:
+                  type: string
+                  format: json
+                  description: Payload
+                remindAt:
+                  type: string
+                  format: date-time
+                  description: Remind At
+              required:
+                - resource
+                - assignedTo
+                - payload
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_23
+  '/system/reminder/{reminderID}':
+    put:
+      tags:
+        - Reminders
+      summary: Update reminder
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: reminderID
+          description: Reminder ID
+          required: true
+          schema: *ref_5
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_24
+                resource:
+                  type: string
+                  description: Resource
+                assignedTo:
+                  type: string
+                  description: Assigned To
+                payload:
+                  type: string
+                  format: json
+                  description: Payload
+                remindAt:
+                  type: string
+                  format: date-time
+                  description: Remind At
+              required:
+                - resource
+                - assignedTo
+                - payload
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_24
+    get:
+      tags:
+        - Reminders
+      summary: Read reminder by ID
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: reminderID
+          description: Reminder ID
+          required: true
+          schema: *ref_5
+    delete:
+      tags:
+        - Reminders
+      summary: Delete reminder
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: reminderID
+          description: Reminder ID
+          required: true
+          schema: *ref_5
+  '/system/reminder/{reminderID}/dismiss':
+    patch:
+      tags:
+        - Reminders
+      summary: Dismiss reminder
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: reminderID
+          description: reminder ID
+          required: true
+          schema: *ref_5
+  '/system/reminder/{reminderID}/snooze':
+    patch:
+      tags:
+        - Reminders
+      summary: Snooze reminder
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: reminderID
+          description: reminder ID
+          required: true
+          schema: *ref_5
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_25
+                remindAt:
+                  type: string
+                  format: date-time
+                  description: New Remind At Time
+              required:
+                - remindAt
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_25
+  '/system/attachment/{kind}/{attachmentID}':
+    get:
+      tags:
+        - Attachments
+      summary: Attachment details
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: kind
+          description: Kind
+          required: true
+          schema: *ref_1
+        - in: path
+          name: attachmentID
+          description: Attachment ID
+          required: true
+          schema: *ref_5
+        - in: query
+          name: sign
+          description: Signature
+          required: false
+          schema: *ref_1
+        - in: query
+          name: userID
+          description: User ID
+          required: false
+          schema: *ref_5
+    delete:
+      tags:
+        - Attachments
+      summary: Delete attachment
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: kind
+          description: Kind
+          required: true
+          schema: *ref_1
+        - in: path
+          name: attachmentID
+          description: Attachment ID
+          required: true
+          schema: *ref_5
+        - in: query
+          name: sign
+          description: Signature
+          required: false
+          schema: *ref_1
+        - in: query
+          name: userID
+          description: User ID
+          required: false
+          schema: *ref_5
+  '/system/attachment/{kind}/{attachmentID}/original/{name}':
+    get:
+      tags:
+        - Attachments
+      summary: Serves attached file
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: kind
+          description: Kind
+          required: true
+          schema: *ref_1
+        - in: path
+          name: attachmentID
+          description: Attachment ID
+          required: true
+          schema: *ref_5
+        - in: path
+          name: name
+          description: File name
+          required: true
+          schema: *ref_1
+        - in: query
+          name: sign
+          description: Signature
+          required: false
+          schema: *ref_1
+        - in: query
+          name: userID
+          description: User ID
+          required: false
+          schema: *ref_5
+        - in: query
+          name: download
+          description: Force file download
+          required: false
+          schema: *ref_13
+  '/system/attachment/{kind}/{attachmentID}/preview.{ext}':
+    get:
+      tags:
+        - Attachments
+      summary: Serves preview of an attached file
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: kind
+          description: Kind
+          required: true
+          schema: *ref_1
+        - in: path
+          name: attachmentID
+          description: Attachment ID
+          required: true
+          schema: *ref_5
+        - in: path
+          name: ext
+          description: Preview extension/format
+          required: true
+          schema: *ref_1
+        - in: query
+          name: sign
+          description: Signature
+          required: false
+          schema: *ref_1
+        - in: query
+          name: userID
+          description: User ID
+          required: false
+          schema: *ref_5
+  /system/template/:
+    get:
+      tags:
+        - Template
+      summary: List templates
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: handle
+          description: Handle
+          required: false
+          schema: *ref_1
+        - in: query
+          name: type
+          description: Type
+          required: false
+          schema: *ref_1
+        - in: query
+          name: ownerID
+          description: OwnerID
+          required: false
+          schema: *ref_5
+        - in: query
+          name: partial
+          description: Show partial templates
+          required: false
+          schema: *ref_13
+        - in: query
+          name: deleted
+          description: >-
+            Exclude (0, default), include (1) or return only (2) deleted
+            templates
+          required: false
+          schema: *ref_2
+        - in: query
+          name: labels
+          description: Labels
+          required: false
+          schema: *ref_1
+        - in: query
+          name: limit
+          description: Limit
+          required: false
+          schema: *ref_2
+        - in: query
+          name: pageCursor
+          description: Page cursor
+          required: false
+          schema: *ref_1
+        - in: query
+          name: sort
+          description: Sort items
+          required: false
+          schema: *ref_1
+    post:
+      tags:
+        - Template
+      summary: Create template
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_26
+                handle:
+                  type: string
+                  description: Handle
+                language:
+                  type: string
+                  description: Language
+                type:
+                  type: string
+                  description: Type
+                partial:
+                  type: boolean
+                  description: Partial
+                meta:
+                  type: string
+                  description: Meta
+                template:
+                  type: string
+                  description: Template
+                ownerID:
+                  type: string
+                  description: OwnerID
+                labels:
+                  type: string
+                  description: Labels
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_26
+  '/system/template/{templateID}':
+    get:
+      tags:
+        - Template
+      summary: Read template
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: templateID
+          description: ID
+          required: true
+          schema: *ref_5
+    put:
+      tags:
+        - Template
+      summary: Update template
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: templateID
+          description: ID
+          required: true
+          schema: *ref_5
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_27
+                handle:
+                  type: string
+                  description: Handle
+                language:
+                  type: string
+                  description: Language
+                type:
+                  type: string
+                  description: Type
+                partial:
+                  type: boolean
+                  description: Partial
+                meta:
+                  type: string
+                  description: Meta
+                template:
+                  type: string
+                  description: Template
+                ownerID:
+                  type: string
+                  description: OwnerID
+                labels:
+                  type: string
+                  description: Labels
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_27
+    delete:
+      tags:
+        - Template
+      summary: Delete template
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: templateID
+          description: ID
+          required: true
+          schema: *ref_5
+  '/system/template/{templateID}/undelete':
+    post:
+      tags:
+        - Template
+      summary: Undelete template
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: templateID
+          description: Template ID
+          required: true
+          schema: *ref_5
+  '/system/template/{templateID}/render/{filename}.{ext}':
+    post:
+      tags:
+        - Template
+      summary: Render template
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: templateID
+          description: Render template to use
+          required: true
+          schema: *ref_5
+        - in: path
+          name: filename
+          description: Filename to use
+          required: true
+          schema: *ref_1
+        - in: path
+          name: ext
+          description: Export format
+          required: true
+          schema: *ref_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_28
+                variables:
+                  type: string
+                  format: json
+                  description: Variables defined by import file
+                options:
+                  type: string
+                  format: json
+                  description: Rendering options
+              required:
+                - variables
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_28
+  /system/stats/:
+    get:
+      tags:
+        - Statistics
+      summary: List system statistics
+      responses:
+        '200':
+          description: OK
+  /system/automation/:
+    get:
+      tags:
+        - System automation scripts
+      summary: List all available automation scripts for system resources
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: resourceTypePrefixes
+          description: Filter by resource prefix
+          required: false
+          schema:
+            type: array
+            items: *ref_1
+        - in: query
+          name: resourceTypes
+          description: Filter by resource type
+          required: false
+          schema:
+            type: array
+            items: *ref_1
+        - in: query
+          name: eventTypes
+          description: Filter by event type
+          required: false
+          schema:
+            type: array
+            items: *ref_1
+        - in: query
+          name: excludeInvalid
+          description: Exclude scripts that cannot be used (errors)
+          required: false
+          schema: *ref_13
+        - in: query
+          name: excludeClientScripts
+          description: Do not include client scripts
+          required: false
+          schema: *ref_13
+        - in: query
+          name: excludeServerScripts
+          description: Do not include server scripts
+          required: false
+          schema: *ref_13
+  '/system/automation/{bundle}-{type}.{ext}':
+    get:
+      tags:
+        - System automation scripts
+      summary: Serves client scripts bundle
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: bundle
+          description: Name of the bundle
+          required: true
+          schema: *ref_1
+        - in: path
+          name: type
+          description: Bundle type
+          required: true
+          schema: *ref_1
+        - in: path
+          name: ext
+          description: Bundle extension
+          required: true
+          schema: *ref_1
+  /system/automation/trigger:
+    post:
+      tags:
+        - System automation scripts
+      summary: Triggers execution of a specific script on a system service level
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_29
+                script:
+                  type: string
+                  description: Script to execute
+              required:
+                - script
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties: *ref_29
+  /system/actionlog/:
+    get:
+      tags:
+        - Action log
+      summary: Action log events
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: from
+          description: From
+          required: false
+          schema: *ref_22
+        - in: query
+          name: to
+          description: To
+          required: false
+          schema: *ref_22
+        - in: query
+          name: beforeActionID
+          description: Entries before specified action ID
+          required: false
+          schema: *ref_5
+        - in: query
+          name: resource
+          description: Resource
+          required: false
+          schema: *ref_1
+        - in: query
+          name: action
+          description: Action
+          required: false
+          schema: *ref_1
+        - in: query
+          name: actorID
+          description: Filter by one or more actors
+          required: false
+          schema:
+            type: array
+            items: *ref_1
+        - in: query
+          name: limit
+          description: Limit
+          required: false
+          schema: *ref_2

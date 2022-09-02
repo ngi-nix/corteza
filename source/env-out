@@ -1,0 +1,252 @@
+AR=ar
+AS=as
+AUTOJUMP_ERROR_PATH=/home/matto/.local/share/autojump/errors.log
+AUTOJUMP_SOURCED=1
+CC=gcc
+CGO_ENABLED=1
+COLORTERM=truecolor
+CONFIG_SHELL=/nix/store/1b9p07z77phvv2hf6gm9f28syp39f1ag-bash-5.1-p16/bin/bash
+CUPS_DATADIR=/nix/store/lv0z8sdwc75irhm2phxwjh6ybdsxhci6-cups-progs/share/cups
+CXX=g++
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+DESKTOP_SESSION=gnome
+DIRENV_DIFF=eJzsWdtv3Lae_leMwXlaRDIvEiUG6INb5-KctEkTb0_q9cKgSFGiLhyKlEWRRf_3xcRuEnsm2aI9-7QDA2NA5Pe7kfx4-X7bmM3T3zYv37y_vHl7dvly83SzebL56eLDzQ_PX5-9eH_zw5sf3168frZ5ujlJpGVabMfE1bX4jsagUOx02W2ebO6hp1qtp27e2vrUB6yVWJxbcjqBYFc-6tKHrqdrT6o1Js02gSks0_y0UvrpF8joRba2q-sHN7lJ50sTsyg8xr4flS-KxLCZt_UgE5DCPAWP8ZrmXGQTFFMUi1MBtqPtV-par7DOXJs0nCfeMmNqm0CY4n0TpV2pojwf2tyOEcNAtGiLDms36L7k5qOJw9C-6zXr-CAqLn2kaJgo0l2fVzkK-RKXpBlUxROU4jyBBCeV0o9NjB3xaqFNVQXRArIilckhZ7R3gvcFzxO-tfXtrAaX0BTupV9gLnnVSFg5bBduyqrhslFU2LyqGr7zeAf-owYoxeVjK9JaFYTXsliwMCyEnJFeATA5Q3Olwmcrh9B_M4PJ901kAY8kaJtNMUPBrHlBXMF7g7JEKi3u0FlKDwyB6FpUsKrK4xQQKZY260KTt0r2zeBAlggl5R0ep3uxa4IowQ3xSHZlq3sGAPGBT36lZvL5lDT61tUiyfah0XQa43EFppK8gEJIRR0vjZCTdW0Zd9DG1ibBafEYW1iBsz7vdOdb0xeKCt9xugqKjTNZ0yQN832Sp3C_Xow2ZaiC6XNWKIF8gXEMTo2hUHKw07pzOzObwBRnj7EdpFNHIJPrBKrFoxEZEdu18n6sWjf5pInK7BYq2pshvR-nqLT1vssJb0HUaIiuMhoSNkKXVFEZlMAUpOWhWY51lVHRIdqsYzVWK7UFy4fMTXzlQ9v0u6hH1tdJluLHWFhRA4pYFKZdFtRK0oxUotIFg6mErEkq5tpdsRIDyWPwIohoEPi4HkfZ66owC40WamhMXobqjl8SlBbpHnaFpBgXOIl-7KHLRg_7KicOW-mhlLRN1pjkKUrzQxl3RY6CIkNZVFJUA187bpTTJOiqUNEXiVRDneRptlfrhRd5tyKy9t2oPM1w0dmq7CvWYVrqXNzlq_RcW8ZnteyKliUG7RVOT5BpXSrj-dCTGFYPgpVEQbRkxYLyB9y6hxYF1pg53iLucRgmBQLppmlidJI9kfwhs4JD9Dggpbyz1nGDe5hXQ175sQdF1-kqi6u7Y9aDUL_KwGCUpPSxoAbyRRYT1GOhY1U2mfjMrCjJs0MDEDLo4MI1UFZT1mrqW4LCinhoXDF13Re0VKZ4bxTcoKyVfhI0RjQuC0aAkjZzgFgY8nw6yKx5umcH8aFsYYkNWZ2e0FJNC-oG32SjgVXbNA-49QB-pNxEa2EUecwdmVboBaFgxCAOMBMwGbdVAtNsv4R_swAWqCnyhk1DBVEjgJvGXHOrs34lXQPlA2IuDgx-7jsYNMlEQYCElAI4-TxjjcsNnbR7QMx7DIlzuyjTEVGWhKKoMVWeT3IVI0Veum8Rc08xylrdcIQnRUOXZ4twpOqWopwWX_kviHlvyWdLFnUWIY9NZJKOTV8OnoNxioXvStZ9Jua9fOGCg2MA9JCVMpIKYBAhzddywIwuyHyLmBHgI6-8bcxE11ENJRDrwrHCSFnbT_ATMe8PMpC8YRkErB_X3Iw41zY4ZYwkJvi2-IKYSQpSdGilDHJkopdDC2HRNTmuyiHnUMSqz4N2k_oWOYtoF1X5Di2dn0aOM9_jFUrpOmMythR3ZPUVgmoCi20muFpy2qw6EGwsy9qOMsPp1IFvkXMDF4lRVKqCsfQ0iCFWAqIV9U0JLGbfJmfUipZVbVx8KGLlKTGqGAsFCHG6RSoxYW63Gu-ODCnc24ODySGX45iHtll8xkLru2klfupxN_W0SObajkqzebtjhQOb-NCUme6WRhvlcySHVWhIW-azNhTeqi7hTNmPR2aSgkTUy95-rBthxEJA9FMzdcH3_dqUvaJqUSu0OJG2rudg6p1_kGaHbPw7pk7XOiqRRJhOVg0Z5BaDsHrvRqhaObhkUJXRTcJ2PzAlKS4OhaK86bOhRFYM1TqFvuCLojy2BoCl6pRN5FbPfKulanYJ4ZQejMYvi2-jn1qS684y1cF1YQo3SE0jUaFL6tWwOUHpriiH4vCm4mNwrHCKdEqPOSasM6BErigLjPqPu06CUlIeLmlubBcq4FfJu2nUDYZVsDhoDWLFmtgnTT3P9TonIEV7k2Jp2lFKsKJBIT3ykQVs_IRLLa1eUE4eOP-Uvb3Vp_c7kLv70m7H-nRk87w9TYctZ8Opa9luzgxsNqw_rVeztfN954XZ00FVhxu_tKTVmhi73Z1a7hrrmZ_ef3Cnu_3v1tX2vvenzHbmd_8_dRS1ZLfD_Dl2fmttrefEBTfX46nzu6bNk82H8xc352eXZzfnF-_e_-Xb5sfM_9Z986OFzZON0m5mw_C2Za7ePN3YW_1yu-1PjK0v7lqu9bUee6HsSWJO_rG9na-1UPa7680_XrzZ3Zh3eV1vrvV_nST1yfXmH0LZ683Jf59c3wKAyN3vCTcniT3Ztd2buNafPG3d_MnV5slGs3EXCN_auY4scbVddocQgFCK0-xjh93h8PtbNYgLbW5n91eruHmyMQe9bZ5snOUPzTJVtABUEaCIOoxXqSBxcgrGZIOAakrc9tbyXUXdbBWfz2uzCwxufn-y0Zunv23OL949--mX3bBvnm6SL-fgW7vtaj670_soNk_-6Pyvs8sfXj7bTZP6VejBj8_ftOdnP6_Lc0yuet9ejWh4Pb_sC1Cdgx-L739af-jh6w8dv8I05MWPb589l8twg8vbD7f6ewH_2Tbhajlb7S_j7avL8tX0rH728p-mdPrnoDP78-WH6Q2vSTW9fhHnKSEI6-mX52_pzb-27WpsfSWXfHr5q2l95qvn_tmvre0leKGfv07OLuYX6ob32Dz7Vf8Ar-irn168B-_eKFq_eDVdXF395wUuk-_VS9o3gv36tp6_f_c2i0FmWxKv_OUH8kHAG3f1E8_e3IDnl-dzHZF6mdzc3sBX_uzs5oa-ay_Od_X98pnneF0_XteP1_V_23V9t7ouL9_enJ2f71gKpB__npagBH_yQXUINNeBKScOPqgen0WPz6JHnj3y7P9znn161JiOZHok0yOZHsn0qDEdNaajxnTUmI4a01FjOmpMR43pqDH9fY3p_eWbd2cvnn16JP-G1nAq2My-LUv9NWnpL15x_8-ErQcS1qmvK2bMKROj0g--8O1otq5-8M1vbS-Hrb_WdzLWg8xWIhcyVUjyypQ5laHvIlelxYjnGUy-ImOd_se9DjYze5Kscdz28ku7pEctwL3h0WRFKfgwUV4APWGbiQIsyye7dyEmW11_sp3OzKZNPEkSoWzN560N332Rzld9QkqCdbJUS-8JKp2jedvnCw8eY-shfezzY_H-rNe7Un_VtwEw5yQXeHF0wQtBTcmFHAoijSZoXB_7vh-mP-39vv9X_UfadUMVsKawk3EsB1FU_VgqGGVXLWX52P8fU-JPB_B5Du1LnP-LtrkvUx7SJwvaThPsy1IyZHybxWUdDMEj6fKV5dAmuSqZDQYA1HDUgaoz4zQAwk0smbOh-oqAufn99_8JAAD__09Bou4=
+DIRENV_DIR=-/home/matto/Projects/corteza
+DIRENV_WATCHES=eJyk0MFOhDAQxvF36ZkwhZm2lLtHk70bD0M7BNxCk1LXjcZ39y57MPEFfvl_38uXunBd1KhgyZvAxrVmuJT8JqEeEHKp8snQyn4rQTXqOce6bqLGztq-623nqVFP9_WohxpreZfv5qHYphw4wbFwEYhrkf0GnFL-AItGi_ck3pEYnC1Z9JNGS0ROi9eGJqIZZUI38-BiH9kgdaYPetBRP4zyf4o6zZwTX6Xd1_sZNc4O_0FTDtez2iH-_u_1JwAA__9RhIDe
+DISPLAY=:1
+EDITOR=nvim
+GDK_PIXBUF_MODULE_FILE=/nix/store/bhm62pv3wbpq43cd84pdi0njf7iskpmy-librsvg-2.50.5/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache
+GDMSESSION=gnome
+GDM_LANG=en_US.UTF-8
+GDM_X_SERVER_EXTRA_ARGS=-config /nix/store/zz6s1ms0n34r60xd9n5h4j1nbzk996c4-xserver.conf -xkbdir /nix/store/fxvzys7imlkig178kbklqpl8gvsyinfz-xkeyboard-config-2.31/etc/X11/xkb -logfile /dev/null -nolisten tcp
+GIO_EXTRA_MODULES=/nix/store/afrrdncrazwqi8if1axrfjpkk8bb18yp-glib-networking-2.68.1/lib/gio/modules:/nix/store/21zzg2i9ng5qqq8l3119lgp3mkd1cnd3-dconf-0.40.0-lib/lib/gio/modules:/nix/store/afrrdncrazwqi8if1axrfjpkk8bb18yp-glib-networking-2.68.1/lib/gio/modules:/nix/store/21zzg2i9ng5qqq8l3119lgp3mkd1cnd3-dconf-0.40.0-lib/lib/gio/modules:/nix/store/afrrdncrazwqi8if1axrfjpkk8bb18yp-glib-networking-2.68.1/lib/gio/modules:/nix/store/k40mqrv9d0kaqj85b547g28wak21mypd-gvfs-1.48.1/lib/gio/modules:/nix/store/21zzg2i9ng5qqq8l3119lgp3mkd1cnd3-dconf-0.40.0-lib/lib/gio/modules
+GIO_LAUNCHED_DESKTOP_FILE_PID=4947
+GI_TYPELIB_PATH=/nix/store/1xvp72cf7cb86wpbj0a87xnka88z0f42-gobject-introspection-1.68.0/lib/girepository-1.0:/nix/store/cd47pnja4mps1sdghd96ra28vkfnkbb0-gtk+3-3.24.27/lib/girepository-1.0:/nix/store/bhm62pv3wbpq43cd84pdi0njf7iskpmy-librsvg-2.50.5/lib/girepository-1.0:/nix/store/h2s2pkw66sbigq3jh8k83w4svsxgiyqp-atk-2.36.0/lib/girepository-1.0:/nix/store/bbqhd1yb0ql5rh6nrs9jafir0248dxzf-gdk-pixbuf-2.42.6/lib/girepository-1.0:/nix/store/ykh1hbbn3q7870l3h2w1bv3zdpqspcp9-gsettings-desktop-schemas-40.0/lib/girepository-1.0:/nix/store/99791d6lnpizcawxzwxv5sjzj6nrgk3k-harfbuzz-2.8.0/lib/girepository-1.0:/nix/store/ssxwrvmn054gn09mssg7rgzv60wsk8mw-pango-1.48.4/lib/girepository-1.0:/nix/store/7ylrm2ajiy1yxlkqn0y8p5n1g23cfsdl-keybinder3-0.3.2/lib/girepository-1.0:/nix/store/4ig1rf3h2d9c8ag8iin0jq0zj8p5gsiy-libnotify-0.7.9/lib/girepository-1.0:/nix/store/ynfi0gx096k85pgnqkvlpgq2i63xpnhn-vte-0.64.1/lib/girepository-1.0:/nix/store/ildv3i23hldkzqd55fsn3p09d7znl7mb-telepathy-glib-0.24.2/lib/girepository-1.0:/nix/store/acan2vpigc5sjy8yygr0rphclb45ckfi-telepathy-logger-0.8.2/lib/girepository-1.0
+GNUPGHOME=/home/matto/.gnupg
+GO111MODULE=on
+GOARCH=amd64
+GOFLAGS=-mod=vendor -trimpath
+GOOS=linux
+GPG_TTY=/dev/pts/2
+GTK_PATH=/home/matto/.local/share/flatpak/exports/lib/gtk-2.0:/home/matto/.local/share/flatpak/exports/lib/gtk-3.0:/var/lib/flatpak/exports/lib/gtk-2.0:/var/lib/flatpak/exports/lib/gtk-3.0:/home/matto/.nix-profile/lib/gtk-2.0:/home/matto/.nix-profile/lib/gtk-3.0:/etc/profiles/per-user/matto/lib/gtk-2.0:/etc/profiles/per-user/matto/lib/gtk-3.0:/nix/var/nix/profiles/default/lib/gtk-2.0:/nix/var/nix/profiles/default/lib/gtk-3.0:/run/current-system/sw/lib/gtk-2.0:/run/current-system/sw/lib/gtk-3.0
+HOME=/home/matto
+HOST_PATH=/nix/store/mj6wiv9gbbydh06x2i4fl5a9ksdck7c5-coreutils-9.1/bin:/nix/store/nqwkgzay3m6ynr4qz42ypx576s7ckp24-findutils-4.9.0/bin:/nix/store/kdjh27abb5zqy267vh4jyg5hifkgls04-diffutils-3.8/bin:/nix/store/n62963g6w2fj8hnka006wycqwx9pqw5q-gnused-4.8/bin:/nix/store/zpjn33mx0pbfc71ddfi9sc8pdfqrsh8z-gnugrep-3.7/bin:/nix/store/7rd34k5jnjwhpk7i9dwjc9xd93psp4gg-gawk-5.1.1/bin:/nix/store/a9g8ybypk5a7id2w733zysimy7iflrqx-gnutar-1.34/bin:/nix/store/j19qj61afxq0bvw2m2pdzhxbwwmbhsqw-gzip-1.12/bin:/nix/store/fkwmqzinrwwj56ch0zn2lzsbpn16am1s-bzip2-1.0.8-bin/bin:/nix/store/3nb49dj29gxmbmbx9r7a5l4sqcxclhgk-gnumake-4.3/bin:/nix/store/1b9p07z77phvv2hf6gm9f28syp39f1ag-bash-5.1-p16/bin:/nix/store/vd6dg2052y5vmfknb7pv9zr1n1pp58yb-patch-2.7.6/bin:/nix/store/x167mv1qdkmk1s4mw1kb56s3rfw1ff9h-xz-5.2.5-bin/bin:/nix/store/j752yi6l87bfdblcxjcpisn6ynb7izw7-file-5.42/bin
+HTTP_ADDR=0.0.0.0:8080
+INFOPATH=/home/matto/.local/share/flatpak/exports/info:/home/matto/.local/share/flatpak/exports/share/info:/var/lib/flatpak/exports/info:/var/lib/flatpak/exports/share/info:/home/matto/.nix-profile/info:/home/matto/.nix-profile/share/info:/etc/profiles/per-user/matto/info:/etc/profiles/per-user/matto/share/info:/nix/var/nix/profiles/default/info:/nix/var/nix/profiles/default/share/info:/run/current-system/sw/info:/run/current-system/sw/share/info
+INVOCATION_ID=7c2c478f284447f5b00a0c4a55573280
+IN_NIX_SHELL=impure
+JOURNAL_STREAM=8:25937
+KDEDIRS=/home/matto/.local/share/flatpak/exports:/var/lib/flatpak/exports:/home/matto/.nix-profile:/etc/profiles/per-user/matto:/nix/var/nix/profiles/default:/run/current-system/sw
+LANG=en_US.UTF-8
+LD=ld
+LD_LIBRARY_PATH=/nix/store/ildv3i23hldkzqd55fsn3p09d7znl7mb-telepathy-glib-0.24.2/lib:/nix/store/acan2vpigc5sjy8yygr0rphclb45ckfi-telepathy-logger-0.8.2/lib
+LIBEXEC_PATH=/home/matto/.local/share/flatpak/exports/lib/libexec:/var/lib/flatpak/exports/lib/libexec:/home/matto/.nix-profile/lib/libexec:/etc/profiles/per-user/matto/lib/libexec:/nix/var/nix/profiles/default/lib/libexec:/run/current-system/sw/lib/libexec
+LOCALE_ARCHIVE=/run/current-system/sw/lib/locale/locale-archive
+LOCALE_ARCHIVE_2_27=/nix/store/lkg27i9ra2qn1nz49hdk2lq2dj57pbir-glibc-locales-2.32-54/lib/locale/locale-archive
+LOGNAME=matto
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+MANAGERPID=2036
+MOZ_PLUGIN_PATH=/home/matto/.local/share/flatpak/exports/lib/mozilla/plugins:/var/lib/flatpak/exports/lib/mozilla/plugins:/home/matto/.nix-profile/lib/mozilla/plugins:/etc/profiles/per-user/matto/lib/mozilla/plugins:/nix/var/nix/profiles/default/lib/mozilla/plugins:/run/current-system/sw/lib/mozilla/plugins
+NAUTILUS_EXTENSION_DIR=/nix/store/r5b5m3c2i4ci0w3g49qahabpm7al7mlk-system-path/lib/nautilus/extensions-3.0
+NIXPKGS_CONFIG=/etc/nix/nixpkgs-config.nix
+NIX_BINTOOLS=/nix/store/n73cfcbgf1bs3rvcp8bgcfgi9dr5bbgc-binutils-wrapper-2.38
+NIX_BINTOOLS_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu=1
+NIX_BUILD_CORES=8
+NIX_BUILD_TOP=/run/user/1000/nix-shell.hqdYaZ
+NIX_CC=/nix/store/n95cd4q1dqzdvsiy1hmrkx9shwi3n4sh-gcc-wrapper-11.3.0
+NIX_CC_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu=1
+NIX_CFLAGS_COMPILE= -frandom-seed=ly95nyaisd
+NIX_ENFORCE_NO_NATIVE=1
+NIX_GCROOT=/nix/store/9zyi2zjn8jnzd2j6j4x0in465iql2ish-corteza-server-2022.3.4-env
+NIX_GSETTINGS_OVERRIDES_DIR=/nix/store/hjk8m0gjf281319f073vdqrhyhan4sf1-nixos-gsettings-desktop-schemas/share/gsettings-schemas/nixos-gsettings-overrides/glib-2.0/schemas
+NIX_HARDENING_ENABLE=fortify stackprotector pic strictoverflow format relro bindnow
+NIX_INDENT_MAKE=1
+NIX_LDFLAGS=-rpath /home/matto/Projects/corteza/outputs/out/lib64 -rpath /home/matto/Projects/corteza/outputs/out/lib 
+NIX_PATH=/home/matto/.nix-defexpr/channels:nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nixos/configuration.nix:/nix/var/nix/profiles/per-user/root/channels
+NIX_PROFILES=/run/current-system/sw /nix/var/nix/profiles/default /etc/profiles/per-user/matto /home/matto/.nix-profile /var/lib/flatpak/exports /home/matto/.local/share/flatpak/exports
+NIX_STORE=/nix/store
+NIX_USER_PROFILE_DIR=/nix/var/nix/profiles/per-user/matto
+NM=nm
+OBJCOPY=objcopy
+OBJDUMP=objdump
+OLDPWD=/home/matto/Projects/corteza
+PAGER=less -R
+PATH=/nix/store/zwd4xhxsklsqsqn5vgz4zdw33wkmiw77-patchelf-0.15.0/bin:/nix/store/n95cd4q1dqzdvsiy1hmrkx9shwi3n4sh-gcc-wrapper-11.3.0/bin:/nix/store/8rx9i9c5lh5rmz31y6ndh7j3nslnk8cp-gcc-11.3.0/bin:/nix/store/kjknajcldbcfwz92lq92njk5b52y5vzv-glibc-2.35-163-bin/bin:/nix/store/mj6wiv9gbbydh06x2i4fl5a9ksdck7c5-coreutils-9.1/bin:/nix/store/n73cfcbgf1bs3rvcp8bgcfgi9dr5bbgc-binutils-wrapper-2.38/bin:/nix/store/frriydwnf7v3dpayy5a6ki00qsp95iiy-binutils-2.38/bin:/nix/store/mj6wiv9gbbydh06x2i4fl5a9ksdck7c5-coreutils-9.1/bin:/nix/store/nqwkgzay3m6ynr4qz42ypx576s7ckp24-findutils-4.9.0/bin:/nix/store/kdjh27abb5zqy267vh4jyg5hifkgls04-diffutils-3.8/bin:/nix/store/n62963g6w2fj8hnka006wycqwx9pqw5q-gnused-4.8/bin:/nix/store/zpjn33mx0pbfc71ddfi9sc8pdfqrsh8z-gnugrep-3.7/bin:/nix/store/7rd34k5jnjwhpk7i9dwjc9xd93psp4gg-gawk-5.1.1/bin:/nix/store/a9g8ybypk5a7id2w733zysimy7iflrqx-gnutar-1.34/bin:/nix/store/j19qj61afxq0bvw2m2pdzhxbwwmbhsqw-gzip-1.12/bin:/nix/store/fkwmqzinrwwj56ch0zn2lzsbpn16am1s-bzip2-1.0.8-bin/bin:/nix/store/3nb49dj29gxmbmbx9r7a5l4sqcxclhgk-gnumake-4.3/bin:/nix/store/1b9p07z77phvv2hf6gm9f28syp39f1ag-bash-5.1-p16/bin:/nix/store/vd6dg2052y5vmfknb7pv9zr1n1pp58yb-patch-2.7.6/bin:/nix/store/x167mv1qdkmk1s4mw1kb56s3rfw1ff9h-xz-5.2.5-bin/bin:/nix/store/j752yi6l87bfdblcxjcpisn6ynb7izw7-file-5.42/bin:/nix/store/wy3nidvssv59q0yrxcmn8wyjk9xk6bxz-go-1.18.5/bin:/nix/store/zwd4xhxsklsqsqn5vgz4zdw33wkmiw77-patchelf-0.15.0/bin:/nix/store/n95cd4q1dqzdvsiy1hmrkx9shwi3n4sh-gcc-wrapper-11.3.0/bin:/nix/store/8rx9i9c5lh5rmz31y6ndh7j3nslnk8cp-gcc-11.3.0/bin:/nix/store/kjknajcldbcfwz92lq92njk5b52y5vzv-glibc-2.35-163-bin/bin:/nix/store/mj6wiv9gbbydh06x2i4fl5a9ksdck7c5-coreutils-9.1/bin:/nix/store/n73cfcbgf1bs3rvcp8bgcfgi9dr5bbgc-binutils-wrapper-2.38/bin:/nix/store/frriydwnf7v3dpayy5a6ki00qsp95iiy-binutils-2.38/bin:/nix/store/mj6wiv9gbbydh06x2i4fl5a9ksdck7c5-coreutils-9.1/bin:/nix/store/nqwkgzay3m6ynr4qz42ypx576s7ckp24-findutils-4.9.0/bin:/nix/store/kdjh27abb5zqy267vh4jyg5hifkgls04-diffutils-3.8/bin:/nix/store/n62963g6w2fj8hnka006wycqwx9pqw5q-gnused-4.8/bin:/nix/store/zpjn33mx0pbfc71ddfi9sc8pdfqrsh8z-gnugrep-3.7/bin:/nix/store/7rd34k5jnjwhpk7i9dwjc9xd93psp4gg-gawk-5.1.1/bin:/nix/store/a9g8ybypk5a7id2w733zysimy7iflrqx-gnutar-1.34/bin:/nix/store/j19qj61afxq0bvw2m2pdzhxbwwmbhsqw-gzip-1.12/bin:/nix/store/fkwmqzinrwwj56ch0zn2lzsbpn16am1s-bzip2-1.0.8-bin/bin:/nix/store/3nb49dj29gxmbmbx9r7a5l4sqcxclhgk-gnumake-4.3/bin:/nix/store/1b9p07z77phvv2hf6gm9f28syp39f1ag-bash-5.1-p16/bin:/nix/store/vd6dg2052y5vmfknb7pv9zr1n1pp58yb-patch-2.7.6/bin:/nix/store/x167mv1qdkmk1s4mw1kb56s3rfw1ff9h-xz-5.2.5-bin/bin:/nix/store/j752yi6l87bfdblcxjcpisn6ynb7izw7-file-5.42/bin:/nix/store/vc75jx26xkjmiw9437jrb8kbaj398n5d-bash-interactive-4.4-p23/bin:/nix/store/nq1ann8ipwclk6zyxw0yrf6i12v47v25-patchelf-0.13/bin:/nix/store/d73n3asch2cw3ylqi0y6jqqqa9qfk6fc-gcc-wrapper-10.3.0/bin:/nix/store/l2iiwsrrscp3k15bl5bwmk07jjnb4zxs-gcc-10.3.0/bin:/nix/store/wxfya1zf68wz79p1cvf7q1nm7nzb8g4d-glibc-2.32-54-bin/bin:/nix/store/y41s1vcn0irn9ahn9wh62yx2cygs7qjj-coreutils-8.32/bin:/nix/store/slirrfwqd9zz2mvv32096h4s06r1y55q-binutils-wrapper-2.35.2/bin:/nix/store/2cl8h183p6xsnq2vbqv2jlwg4mp1bhgg-binutils-2.35.2/bin:/nix/store/m9cpzrr1zd5z5s6qx1wd690m30zl14d1-mob-1.4.0/bin:/nix/store/y41s1vcn0irn9ahn9wh62yx2cygs7qjj-coreutils-8.32/bin:/nix/store/r0iqzcgaqlb12gd0sqm5ncrn4kx6jg1f-findutils-4.7.0/bin:/nix/store/l5wj1yn64d760f19901qw54ags5p9qns-diffutils-3.7/bin:/nix/store/35rvipj6d88692zn39iwcqfxdm92wfsq-gnused-4.8/bin:/nix/store/k9324hngc23qi9yj54vds6bjv78qvwbw-gnugrep-3.6/bin:/nix/store/4v4zn4z1czgzaf9mgk8lwc0mqz7wj8aj-gawk-5.1.0/bin:/nix/store/1v3ysa00k1a8fz6b030z195x8l3a9v2p-gnutar-1.34/bin:/nix/store/20cmcbwrgpq9xmil80dxvc3i32irrkq1-gzip-1.10/bin:/nix/store/y0fcga410akmx5pm35nrysippf6pywh7-bzip2-1.0.6.0.2-bin/bin:/nix/store/lfmadkflh117jg53b8l5c1dzbk5ynsqi-gnumake-4.3/bin:/nix/store/dzrvibwj2vjwqmc34wk3x1ffsjpp4av7-bash-4.4-p23/bin:/nix/store/gyazh4dciv59gxny63pra4hj9apc9qj0-patch-2.7.6/bin:/nix/store/g1vf32ziib1z8w9ydlzbd12x2kg80r3a-xz-5.2.5-bin/bin:/nix/store/j2hdhabhzvwy7zbw96pi7m7i066snh2i-python3-3.8.11/bin:/nix/store/yp51cfmm5yhgvw4ayhwjqx6wqk3jqk97-terminator-2.1.1/bin:/nix/store/lg84njvgnpiw52flxdn19haw4hy7wrij-cairo-1.16.0-dev/bin:/nix/store/fngdpdv60zwqgqjywkkxg8ki9ivix1r3-freetype-2.10.4-dev/bin:/nix/store/y0fcga410akmx5pm35nrysippf6pywh7-bzip2-1.0.6.0.2-bin/bin:/nix/store/jhs9f2f239qril41cr30yxwwsm1ihfls-libpng-apng-1.6.37-dev/bin:/nix/store/iwpk4l82rdlbxqyk7cvi9czhp00vbjir-fontconfig-2.13.92-bin/bin:/nix/store/wvvwhzwqh65njraij1xvai3g2iqm6iyj-expat-2.2.10-dev/bin:/nix/store/wpbcmysa7si6jinm536ajp082s78732k-glib-2.68.4-dev/bin:/nix/store/5prjyb0wxfcjqmng31byr3ynn0zbagzk-gettext-0.21/bin:/nix/store/vghmff0x2li2nmcmay3pwq38nfrnv256-glib-2.68.4-bin/bin:/run/wrappers/bin:/home/matto/.local/share/flatpak/exports/bin:/var/lib/flatpak/exports/bin:/home/matto/.nix-profile/bin:/etc/profiles/per-user/matto/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin
+PWD=/home/matto/Projects/corteza/source
+PYTHONNOUSERSITE=true
+QTWEBKIT_PLUGIN_PATH=/home/matto/.local/share/flatpak/exports/lib/mozilla/plugins/:/var/lib/flatpak/exports/lib/mozilla/plugins/:/home/matto/.nix-profile/lib/mozilla/plugins/:/etc/profiles/per-user/matto/lib/mozilla/plugins/:/nix/var/nix/profiles/default/lib/mozilla/plugins/:/run/current-system/sw/lib/mozilla/plugins/
+QT_PLUGIN_PATH=/home/matto/.local/share/flatpak/exports/lib/qt4/plugins:/home/matto/.local/share/flatpak/exports/lib/kde4/plugins:/var/lib/flatpak/exports/lib/qt4/plugins:/var/lib/flatpak/exports/lib/kde4/plugins:/home/matto/.nix-profile/lib/qt4/plugins:/home/matto/.nix-profile/lib/kde4/plugins:/etc/profiles/per-user/matto/lib/qt4/plugins:/etc/profiles/per-user/matto/lib/kde4/plugins:/nix/var/nix/profiles/default/lib/qt4/plugins:/nix/var/nix/profiles/default/lib/kde4/plugins:/run/current-system/sw/lib/qt4/plugins:/run/current-system/sw/lib/kde4/plugins
+RANLIB=ranlib
+READELF=readelf
+SESSION_MANAGER=local/matto-lap:@/tmp/.ICE-unix/2098,unix/matto-lap:/tmp/.ICE-unix/2098
+SHELL=/nix/store/1b9p07z77phvv2hf6gm9f28syp39f1ag-bash-5.1-p16/bin/bash
+SHLVL=3
+SIZE=size
+SOURCE_DATE_EPOCH=315532800
+SSH_ASKPASS=/nix/store/ddhz508dsmjnxjqnd3h6da5glv8z6fzq-seahorse-40.0/libexec/seahorse/ssh-askpass
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+STORAGE_PATH=/home/matto/Projects/corteza/data
+STRINGS=strings
+STRIP=strip
+TEMP=/run/user/1000/nix-shell.hqdYaZ
+TEMPDIR=/run/user/1000/nix-shell.hqdYaZ
+TERM=xterm-256color
+TERMINATOR_DBUS_NAME=net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f
+TERMINATOR_DBUS_PATH=/net/tenshu/Terminator2
+TERMINATOR_UUID=urn:uuid:b198ded0-04f9-489c-b243-84342e82405e
+TERMINFO_DIRS=/home/matto/.local/share/flatpak/exports/share/terminfo:/var/lib/flatpak/exports/share/terminfo:/home/matto/.nix-profile/share/terminfo:/etc/profiles/per-user/matto/share/terminfo:/nix/var/nix/profiles/default/share/terminfo:/run/current-system/sw/share/terminfo
+TMP=/run/user/1000/nix-shell.hqdYaZ
+TMPDIR=/run/user/1000/nix-shell.hqdYaZ
+TZDIR=/etc/zoneinfo
+USER=matto
+USERNAME=matto
+VTE_VERSION=6401
+WINDOWPATH=2
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+XCURSOR_PATH=/home/matto/.icons:/home/matto/.local/share/icons:/home/matto/.local/share/flatpak/exports/share/icons:/home/matto/.local/share/flatpak/exports/share/pixmaps:/var/lib/flatpak/exports/share/icons:/var/lib/flatpak/exports/share/pixmaps:/home/matto/.nix-profile/share/icons:/home/matto/.nix-profile/share/pixmaps:/etc/profiles/per-user/matto/share/icons:/etc/profiles/per-user/matto/share/pixmaps:/nix/var/nix/profiles/default/share/icons:/nix/var/nix/profiles/default/share/pixmaps:/run/current-system/sw/share/icons:/run/current-system/sw/share/pixmaps
+XDG_CONFIG_DIRS=/etc/xdg:/home/matto/.local/share/flatpak/exports/etc/xdg:/var/lib/flatpak/exports/etc/xdg:/home/matto/.nix-profile/etc/xdg:/etc/profiles/per-user/matto/etc/xdg:/nix/var/nix/profiles/default/etc/xdg:/run/current-system/sw/etc/xdg:/nix/store/1v1c0l2dxmd8cs22k4l9cqmp1p2w02mw-gnome-settings-daemon-40.0.1/etc/xdg:/nix/store/1v1c0l2dxmd8cs22k4l9cqmp1p2w02mw-gnome-settings-daemon-40.0.1/etc/xdg
+XDG_CURRENT_DESKTOP=GNOME
+XDG_DATA_DIRS=/nix/store/zwd4xhxsklsqsqn5vgz4zdw33wkmiw77-patchelf-0.15.0/share:/nix/store/wy3nidvssv59q0yrxcmn8wyjk9xk6bxz-go-1.18.5/share:/nix/store/zwd4xhxsklsqsqn5vgz4zdw33wkmiw77-patchelf-0.15.0/share
+XDG_DESKTOP_PORTAL_DIR=/nix/store/r0a0qq01flvz7xclap44d5yam7ijphdl-xdg-portals/share/xdg-desktop-portal/portals
+XDG_MENU_PREFIX=gnome-
+XDG_RUNTIME_DIR=/run/user/1000
+XDG_SESSION_CLASS=user
+XDG_SESSION_DESKTOP=gnome
+XDG_SESSION_TYPE=x11
+_=../result/bin/corteza
+__ETC_PROFILE_DONE=1
+__HM_SESS_VARS_SOURCED=1
+__NIXOS_SET_ENVIRONMENT_DONE=1
+buildCommandPath=/tmp/nix-shell-43306-0/.attr-0
+buildInputs=
+buildPhase=runHook preBuild
+
+exclude='\(/_\|examples\|Godeps\|testdata'
+if [[ -n "$excludedPackages" ]]; then
+  IFS=' ' read -r -a excludedArr <<<$excludedPackages
+  printf -v excludedAlternates '%s\\|' "${excludedArr[@]}"
+  excludedAlternates=${excludedAlternates%\\|} # drop final \| added by printf
+  exclude+='\|'"$excludedAlternates"
+fi
+exclude+='\)'
+
+buildGoDir() {
+  local cmd="$1" dir="$2"
+
+  . $TMPDIR/buildFlagsArray
+
+  declare -a flags
+  flags+=($buildFlags "${buildFlagsArray[@]}")
+  flags+=(${tags:+-tags=})
+  flags+=(${ldflags:+-ldflags="$ldflags"})
+  flags+=("-v" "-p" "$NIX_BUILD_CORES")
+
+  if [ "$cmd" = "test" ]; then
+    flags+=($checkFlags)
+  fi
+
+  local OUT
+  if ! OUT="$(go $cmd "${flags[@]}" $dir 2>&1)"; then
+    if ! echo "$OUT" | grep -qE '(no( buildable| non-test)?|build constraints exclude all) Go (source )?files'; then
+      echo "$OUT" >&2
+      return 1
+    fi
+  fi
+  if [ -n "$OUT" ]; then
+    echo "$OUT" >&2
+  fi
+  return 0
+}
+
+getGoDirs() {
+  local type;
+  type="$1"
+  if [ -n "$subPackages" ]; then
+    echo "$subPackages" | sed "s,\(^\| \),\1./,g"
+  else
+    find . -type f -name \*$type.go -exec dirname {} \; | grep -v "/vendor/" | sort --unique | grep -v "$exclude"
+  fi
+}
+
+if (( "${NIX_DEBUG:-0}" >= 1 )); then
+  buildFlagsArray+=(-x)
+fi
+
+if [ ${#buildFlagsArray[@]} -ne 0 ]; then
+  declare -p buildFlagsArray > $TMPDIR/buildFlagsArray
+else
+  touch $TMPDIR/buildFlagsArray
+fi
+if [ -z "$enableParallelBuilding" ]; then
+    export NIX_BUILD_CORES=1
+fi
+for pkg in $(getGoDirs ""); do
+  echo "Building subPackage $pkg"
+  buildGoDir install "$pkg"
+done
+runHook postBuild
+
+builder=/nix/store/1b9p07z77phvv2hf6gm9f28syp39f1ag-bash-5.1-p16/bin/bash
+checkPhase=runHook preCheck
+# We do not set trimpath for tests, in case they reference test assets
+export GOFLAGS=${GOFLAGS//-trimpath/}
+
+for pkg in $(getGoDirs test); do
+  buildGoDir test "$pkg"
+done
+
+runHook postCheck
+
+cmakeFlags=
+configureFlags=
+configurePhase=runHook preConfigure
+
+export GOCACHE=$TMPDIR/go-cache
+export GOPATH="$TMPDIR/go"
+export GOPROXY=off
+export GOSUMDB=off
+cd "$modRoot"
+
+runHook postConfigure
+
+depsBuildBuild=
+depsBuildBuildPropagated=
+depsBuildTarget=
+depsBuildTargetPropagated=
+depsHostHost=
+depsHostHostPropagated=
+depsTargetTarget=
+depsTargetTargetPropagated=
+doCheck=
+doInstallCheck=
+dontAddDisableDepTrack=1
+enableParallelBuilding=1
+enableParallelChecking=1
+installPhase=mkdir -p $out/webapp/admin $out/webapp/compose $out/webapp/workflow
+cp -r /nix/store/wyx6fv6qb2fcbp859fykjzci8r32c541-corteza-server-2022.3.4/* $out
+tar -xzmokf /nix/store/6k2h03kpczp478dclq9c70nq3r4d70vv-corteza-webapp-one-2022.3.4.tar.gz --directory=$out/webapp
+tar -xzmokf /nix/store/196yrsf8ivkw628ss95hk5vcyw33rw19-corteza-webapp-admin-2022.3.4.tar.gz --directory=$out/webapp/admin
+tar -xzmokf /nix/store/p015c65d3vs9v3v62g8cdfl76fpn62mx-corteza-webapp-compose-2022.3.4.tar.gz --directory=$out/webapp/compose
+tar -xzmokf /nix/store/z9jjlby3n91jfzm8ld7bkm8i1zfjbv88-corteza-webapp-workflow-2022.3.4.tar.gz --directory=$out/webapp/workflow
+
+mesonFlags=
+name=corteza-2022.3.4
+nativeBuildInputs=
+out=/home/matto/Projects/corteza/outputs/out
+outputs=out
+passAsFile=buildCommand
+patches=
+pname=corteza
+postInstall=cp -r provision $out
+rm -f $out/provision/README.adoc $out/provision/update.sh
+cp -r auth/assets $out/auth
+
+propagatedBuildInputs=
+propagatedNativeBuildInputs=
+shell=/nix/store/1b9p07z77phvv2hf6gm9f28syp39f1ag-bash-5.1-p16/bin/bash
+src=/nix/store/79hqq1k88fa2pwh4zvxlp63m6j5xa51r-5i8aryp002gc2j0bjpmql06cpz8asryb-source
+stdenv=/nix/store/bj5n3k01mq8bysw0rcdm7jxvhc620pd3-stdenv-linux
+strictDeps=
+subPackages=cmd/corteza
+system=x86_64-linux
+version=2022.3.4

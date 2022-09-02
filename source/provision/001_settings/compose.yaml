@@ -1,0 +1,6 @@
+settings:
+  compose.record.attachments.max-size: 10
+  compose.record.attachments.mimetypes: []
+
+  compose.page.attachments.max-size: 10
+  compose.page.attachments.mimetypes: []
