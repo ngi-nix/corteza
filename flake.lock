@@ -4,17 +4,13 @@
       "flake": false,
       "locked": {
         "lastModified": 1658928592,
-        "narHash": "sha256-1rtsaftrLoovNAMgupmPACol18Xx/d45A3YY45cc5P4=",
-        "owner": "cortezaproject",
-        "repo": "corteza-webapp-admin",
-        "rev": "7f12ddd7b92e5307b9cd67e5b26860a6557ab57e",
-        "type": "github"
+        "narHash": "sha256-BkqbXvxx+nOpsTvOIBY5y14xt9feozkzmTC3oaVcb3A=",
+        "type": "git",
+        "url": "file:./corteza-webapp-admin"
       },
       "original": {
-        "owner": "cortezaproject",
-        "ref": "2022.3.4",
-        "repo": "corteza-webapp-admin",
-        "type": "github"
+        "type": "git",
+        "url": "file:./corteza-webapp-admin"
       }
     },
     "compose": {

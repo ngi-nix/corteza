@@ -17,7 +17,8 @@
     one.url = github:cortezaproject/corteza-webapp-one;
     one.flake = false;
 
-    admin.url = github:cortezaproject/corteza-webapp-admin/2022.3.4;
+    # admin.url = github:cortezaproject/corteza-webapp-admin/2022.3.4;
+    admin.url = git+file:./corteza-webapp-admin;
     admin.flake = false;
   };
 
