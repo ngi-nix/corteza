@@ -1,4 +1,4 @@
-{ stdenv, version, meta, server, one, admin, compose, workflow }:
+{ stdenv, version, meta, server, one, admin, compose, workflow, ... }:
 stdenv.mkDerivation
 rec {
   pname = "corteza";

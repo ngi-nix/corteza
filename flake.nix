@@ -35,9 +35,10 @@
             # maintainers = [ maintainers. ];
           };
           version = "2022.3.4";
-          server = pkgs.callPackage ./server { inherit meta version; };
-          admin = pkgs.callPackage ./admin { inherit meta version; };
-          corteza = pkgs.callPackage ./corteza { inherit meta version server one admin compose workflow; };
+          params = { inherit meta version server one admin compose workflow inputs; };
+          server = pkgs.callPackage ./server params;
+          admin = pkgs.callPackage ./admin params;
+          corteza = pkgs.callPackage ./corteza params;
           releasesURL = "https://releases.cortezaproject.org/files";
 
           webapp = app: "${releasesURL}/corteza-webapp-${app}-${version}.tar.gz";
@@ -52,7 +53,8 @@
         {
           inherit server admin corteza;
         };
-
+      devShells.x86_64-linux.default = pkgs.mkShell {
+      };
       defaultPackage.x86_64-linux = self.packages.x86_64-linux.corteza;
     };
 }

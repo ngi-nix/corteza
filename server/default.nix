@@ -2,7 +2,7 @@
 , fetchFromGitHub
 , version
 , meta
-,
+, ...
 }:
 
 buildGoModule rec {
