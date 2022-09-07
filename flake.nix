@@ -4,11 +4,24 @@
 
   inputs = {
     nixpkgs.url = github:nixos/nixpkgs;
-    webapp.url = github:cortezaproject/corteza-webapp-workflow;
-    webapp.flake = false;
+
+    server.url = github:cortezaproject/corteza-server;
+    server.flake = false;
+
+    compose.url = github:cortezaproject/corteza-webapp-compose;
+    compose.flake = false;
+
+    workflow.url = github:cortezaproject/corteza-webapp-workflow;
+    workflow.flake = false;
+
+    one.url = github:cortezaproject/corteza-webapp-one;
+    one.flake = false;
+
+    admin.url = github:cortezaproject/corteza-webapp-admin;
+    admin.flake = false;
   };
 
-  outputs = { self, nixpkgs, webapp }:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
     in

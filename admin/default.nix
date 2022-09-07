@@ -1,8 +1,13 @@
-{ buildGoModule
+{ yarn2nix
 , fetchFromGitHub
 , version
 , meta
+, src
 }:
+
+yarn2nix.buildYarnPackage {
+  inherit src;
+}
 
 buildGoModule rec {
   pname = "corteza-server";

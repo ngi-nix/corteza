@@ -1,5 +1,37 @@
 {
   "nodes": {
+    "admin": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1662467163,
+        "narHash": "sha256-FClIBQ+SaC3QG4/HYmc3AS7BsgGissZK68zb2EJpZBU=",
+        "owner": "cortezaproject",
+        "repo": "corteza-webapp-admin",
+        "rev": "0b53a4e6e35dc44679c119160ba038a2d733565d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cortezaproject",
+        "repo": "corteza-webapp-admin",
+        "type": "github"
+      }
+    },
+    "compose": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1662467218,
+        "narHash": "sha256-jsV7X1fF7MQX32gX0jteav6yEHbMgVw+R0eZt6qus8E=",
+        "owner": "cortezaproject",
+        "repo": "corteza-webapp-compose",
+        "rev": "4c3e9d8a37606eed2b642c07fa73bcd47fc9a475",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cortezaproject",
+        "repo": "corteza-webapp-compose",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1662120662,
@@ -15,13 +47,49 @@
         "type": "github"
       }
     },
-    "root": {
-      "inputs": {
-        "nixpkgs": "nixpkgs",
-        "webapp": "webapp"
+    "one": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1662467340,
+        "narHash": "sha256-BFaixKkHT0JaLC0EzFQ3iAZ0fITYfUkgX0byQWxX2JA=",
+        "owner": "cortezaproject",
+        "repo": "corteza-webapp-one",
+        "rev": "b03ee676477edf72df5a7a45746b21a926eab293",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cortezaproject",
+        "repo": "corteza-webapp-one",
+        "type": "github"
       }
     },
-    "webapp": {
+    "root": {
+      "inputs": {
+        "admin": "admin",
+        "compose": "compose",
+        "nixpkgs": "nixpkgs",
+        "one": "one",
+        "server": "server",
+        "workflow": "workflow"
+      }
+    },
+    "server": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1662551655,
+        "narHash": "sha256-Jfjb2ftejfHGxfzwgNTthbBh7F81YK8O82BJ8Pvq9/g=",
+        "owner": "cortezaproject",
+        "repo": "corteza-server",
+        "rev": "f0bf220666cda85a4e356f5ac1a9f027bfb850fc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cortezaproject",
+        "repo": "corteza-server",
+        "type": "github"
+      }
+    },
+    "workflow": {
       "flake": false,
       "locked": {
         "lastModified": 1662467488,
