@@ -3,15 +3,16 @@
     "admin": {
       "flake": false,
       "locked": {
-        "lastModified": 1662467163,
-        "narHash": "sha256-FClIBQ+SaC3QG4/HYmc3AS7BsgGissZK68zb2EJpZBU=",
+        "lastModified": 1658928592,
+        "narHash": "sha256-1rtsaftrLoovNAMgupmPACol18Xx/d45A3YY45cc5P4=",
         "owner": "cortezaproject",
         "repo": "corteza-webapp-admin",
-        "rev": "0b53a4e6e35dc44679c119160ba038a2d733565d",
+        "rev": "7f12ddd7b92e5307b9cd67e5b26860a6557ab57e",
         "type": "github"
       },
       "original": {
         "owner": "cortezaproject",
+        "ref": "2022.3.4",
         "repo": "corteza-webapp-admin",
         "type": "github"
       }
