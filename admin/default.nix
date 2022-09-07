@@ -2,9 +2,7 @@
 , fetchFromGitHub
 , version
 , meta
-,
 }:
-          admin = fetchurl { url = webapp "admin"; sha256 = "sha256-IUGj++SU8mqXLfOhlJN12Q5H4zw9Pw3Lv+qP3JNL/bA="; };
 
 buildGoModule rec {
   pname = "corteza-server";

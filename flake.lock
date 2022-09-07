@@ -17,7 +17,24 @@
     },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "webapp": "webapp"
+      }
+    },
+    "webapp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1662467488,
+        "narHash": "sha256-62c143FkgUJ1LJtFE1tTl2JhComKa+ScL15G8iHhI28=",
+        "owner": "cortezaproject",
+        "repo": "corteza-webapp-workflow",
+        "rev": "071851abb6bfc7a1cdd33ddfc97616529db51ddb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cortezaproject",
+        "repo": "corteza-webapp-workflow",
+        "type": "github"
       }
     }
   },
