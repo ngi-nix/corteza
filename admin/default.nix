@@ -7,5 +7,5 @@
 }:
 yarn2nix-moretea.mkYarnPackage {
   src = inputs.admin;
-
+  yarnLock = ./yarn.lock;
 }
