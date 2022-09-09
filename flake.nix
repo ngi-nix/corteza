@@ -4,6 +4,7 @@
 
   inputs = {
     nixpkgs.url = github:nixos/nixpkgs;
+    dream2nix.url = github:nix-community/dream2nix;
 
     server.url = github:cortezaproject/corteza-server;
     server.flake = false;
@@ -24,7 +25,8 @@
 
   outputs = { self, nixpkgs, ... }@inputs:
     let
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      pkgs = nixpkgs.legacyPackages.${system};
+      system = "x86_64-linux";
     in
     {
       packages.x86_64-linux = with pkgs;
@@ -38,7 +40,37 @@
           version = "2022.3.4";
           params = { inherit meta version server one admin compose workflow inputs; };
           server = pkgs.callPackage ./server params;
-          admin = pkgs.callPackage ./admin params;
+
+          admin =
+            let flake = inputs.dream2nix.lib.makeFlakeOutputs {
+              systems = [ system ];
+              config.projectRoot = ./.;
+              source = ./.;
+
+              # configure package builds via overrides
+              # (see docs for override system below)
+              packageOverrides = {
+                # name of the package
+                corteza-webapp-admin = {
+                  # name the override
+                  add-pre-build-steps =
+                    let
+                      git-tag = pkgs.writeScriptBin "git" ''
+                        echo 2022.3.4
+                      '';
+                    in
+                    {
+                      # update attributes
+                      buildInputs = old: old ++ [ git-tag ];
+
+                      preBuild = "echo hello";
+                    };
+                };
+              };
+            };
+            in
+            flake.packages.x86_64-linux.default;
+
           corteza = pkgs.callPackage ./corteza params;
           releasesURL = "https://releases.cortezaproject.org/files";
 
@@ -54,8 +86,7 @@
         {
           inherit server admin corteza;
         };
-      devShells.x86_64-linux.default = pkgs.mkShell {
-      };
+      devShells.x86_64-linux.default = pkgs.mkShell { };
       defaultPackage.x86_64-linux = self.packages.x86_64-linux.corteza;
     };
 }
