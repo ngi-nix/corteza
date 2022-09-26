@@ -1,10 +1,5 @@
 # Stuff todo
-- Look up how to start up several different services.
-  - Fixing corteza-webapp-admin
-    - somehow we don't have yargs-parser downloaded
-      *Dream2nix solves this.*
-
-    - currently admin does not yet build.
+- exposing dream2nix flake attribute propely to the calling flake
 
 
 - Maybe look for different available API paths in the source.
