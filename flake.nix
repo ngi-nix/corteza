@@ -23,7 +23,7 @@
     admin.flake = false;
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, nixpkgs, dream2nix, ... }@inputs:
     let
       pkgs = nixpkgs.legacyPackages.${system};
       system = "x86_64-linux";
@@ -41,91 +41,9 @@
           params = { inherit meta version server one admin compose workflow inputs; };
           server = pkgs.callPackage ./server params;
 
-          admin =
-            let flake = inputs.dream2nix.lib.makeFlakeOutputs {
-              systems = [ system ];
-              config.projectRoot = ./.;
-              source = ./.;
-
-              # configure package builds via overrides
-              # (see docs for override system below)
-              packageOverrides = {
-                # name of the package
-                corteza-webapp-admin = {
-                  # name the override
-                  add-pre-build-steps =
-                    let
-                      git-tag = pkgs.writeScriptBin "git" ''
-                        echo 2022.3.4
-                      '';
-                    in
-                    {
-                      # update attributes
-                      buildInputs = old: old ++ [ git-tag ];
-
-                      preBuild = "echo hello";
-                    };
-                };
-              };
-            };
-          admin =
-            let flake = inputs.dream2nix.lib.makeFlakeOutputs {
-              systems = [ system ];
-              config.projectRoot = ./.;
-              source = ./.;
-
-              # configure package builds via overrides
-              # (see docs for override system below)
-              packageOverrides = {
-                # name of the package
-                corteza-webapp-admin = {
-                  # name the override
-                  add-pre-build-steps =
-                    let
-                      git-tag = pkgs.writeScriptBin "git" ''
-                        echo 2022.3.4
-                      '';
-                    in
-                    {
-                      # update attributes
-                      buildInputs = old: old ++ [ git-tag ];
-
-                      preBuild = "echo hello";
-                    };
-                };
-              };
-            };
-            in
-            flake.packages.x86_64-linux.default;
-          workflow =
-            let flake = inputs.dream2nix.lib.makeFlakeOutputs {
-              systems = [ system ];
-              config.projectRoot = ./.;
-              source = workflow;
-
-              # configure package builds via overrides
-              # (see docs for override system below)
-              packageOverrides = {
-                # name of the package
-                corteza-webapp-admin = {
-                  # name the override
-                  add-pre-build-steps =
-                    let
-                      git-tag = pkgs.writeScriptBin "git" ''
-                        echo 2022.3.4
-                      '';
-                    in
-                    {
-                      # update attributes
-                      buildInputs = old: old ++ [ git-tag ];
-
-                      preBuild = "echo hello";
-                    };
-                };
-              };
-            };
-            in
-            flake.packages.x86_64-linux.workflow;
+          admin = import ./admin/default.nix {inherit dream2nix system pkgs; };
+          
+          workflow = import ./workflow/default.nix {inherit dream2nix system pkgs; };
 
           corteza = pkgs.callPackage ./corteza params;
 
