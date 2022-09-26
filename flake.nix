@@ -12,18 +12,17 @@
     compose.url = "github:cortezaproject/corteza-webapp-compose";
     compose.flake = false;
 
-    workflow.url = "github:cortezaproject/corteza-webapp-workflow";
-    workflow.flake = false;
+    workflow-src.url = "github:cortezaproject/corteza-webapp-workflow";
+    workflow-src.flake = false;
 
     one.url = "github:cortezaproject/corteza-webapp-one";
     one.flake = false;
 
-    admin.url = "github:cortezaproject/corteza-webapp-admin/2022.3.4";
-    #admin.url = git+file:./corteza-webapp-admin;
-    admin.flake = false;
+    admin-src.url = "github:cortezaproject/corteza-webapp-admin/2022.3.4";
+    admin-src.flake = false;
   };
 
-  outputs = { self, nixpkgs, dream2nix, ... }@inputs:
+  outputs = { self, nixpkgs, admin-src, dream2nix, ... }@inputs:
     let
       pkgs = nixpkgs.legacyPackages.${system};
       system = "x86_64-linux";
@@ -41,9 +40,9 @@
           params = { inherit meta version server one admin compose workflow inputs; };
           server = pkgs.callPackage ./server params;
 
-          admin = import ./admin/default.nix {inherit dream2nix system pkgs; };
+          admin = import ./admin/default.nix {inherit dream2nix system pkgs admin-src; };
           
-          workflow = import ./workflow/default.nix {inherit dream2nix system pkgs; };
+          # workflow = import ./workflow/default.nix {inherit dream2nix system pkgs; };
 
           corteza = pkgs.callPackage ./corteza params;
 
@@ -52,7 +51,7 @@
           # discovery app missing
         in
         {
-          inherit server admin corteza workflow;
+          inherit server admin corteza;
         };
       devShells.x86_64-linux.default = pkgs.mkShell { };
       defaultPackage.x86_64-linux = self.packages.x86_64-linux.corteza;

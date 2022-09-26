@@ -1,6 +1,6 @@
 {
   "nodes": {
-    "admin": {
+    "admin-src": {
       "flake": false,
       "locked": {
         "lastModified": 1658928592,
@@ -289,13 +289,13 @@
     },
     "root": {
       "inputs": {
-        "admin": "admin",
+        "admin-src": "admin-src",
         "compose": "compose",
         "dream2nix": "dream2nix",
         "nixpkgs": "nixpkgs_2",
         "one": "one",
         "server": "server",
-        "workflow": "workflow"
+        "workflow-src": "workflow-src"
       }
     },
     "rust-analyzer-src": {
@@ -331,14 +331,14 @@
         "type": "github"
       }
     },
-    "workflow": {
+    "workflow-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1662467488,
-        "narHash": "sha256-62c143FkgUJ1LJtFE1tTl2JhComKa+ScL15G8iHhI28=",
+        "lastModified": 1663679321,
+        "narHash": "sha256-rs8dOuktRuyuPqtGnqoS5nuRTNb2BgbvgmEIYtV45yw=",
         "owner": "cortezaproject",
         "repo": "corteza-webapp-workflow",
-        "rev": "071851abb6bfc7a1cdd33ddfc97616529db51ddb",
+        "rev": "54b3c50a546cb917c245a6db66bc2f5335c0f938",
         "type": "github"
       },
       "original": {
