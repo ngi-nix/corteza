@@ -4,6 +4,12 @@ dream2nix.lib.makeFlakeOutputs {
   config.projectRoot = one-src;
   source = one-src;
 
+  settings = [
+    {
+      subsystemInfo.nodejs = 14;
+    }
+  ];
+
   # configure package builds via overrides
   # (see docs for override system below)
   packageOverrides = {
