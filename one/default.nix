@@ -1,12 +1,13 @@
 { one-src, dream2nix, system, pkgs }:
-dream2nix.lib.makeFlakeOutputs {
+dream2nix.lib.makeFlakeOutputs
+{
   systems = [ system ];
   config.projectRoot = one-src;
   source = one-src;
 
   settings = [
     {
-      subsystemInfo.nodejs = 14;
+      subsystemInfo.nodejs = 16;
     }
   ];
 

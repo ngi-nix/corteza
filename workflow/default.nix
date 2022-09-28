@@ -1,5 +1,6 @@
 { workflow-src, dream2nix, system, pkgs }:
-dream2nix.lib.makeFlakeOutputs {
+dream2nix.lib.makeFlakeOutputs
+{
   systems = [ system ];
   config.projectRoot = workflow-src;
   source = workflow-src;
