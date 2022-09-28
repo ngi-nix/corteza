@@ -26,6 +26,7 @@
     let
       pkgs = nixpkgs.legacyPackages.${system};
       system = "x86_64-linux";
+      mergeFlakes = with builtins; foldl' (a: b: a // b.packages.x86_64-linux) {};
     in
     {
       packages.x86_64-linux = with pkgs;
@@ -40,19 +41,21 @@
           params = { inherit meta version server one admin compose workflow inputs; };
           server = pkgs.callPackage ./server params;
 
-          admin = import ./admin/default.nix {inherit dream2nix system pkgs admin-src; };
-          
-          workflow = import ./workflow/default.nix {inherit dream2nix system pkgs; };
 
-          corteza = pkgs.callPackage ./corteza params;
+          # workflow = import ./workflow/default.nix {inherit dream2nix system pkgs; };
+
+          # corteza = pkgs.callPackage ./corteza params;
 
           # privacy app missing
           # reporter app missing
           # discovery app missing
         in
         {
-          inherit server admin corteza;
-        };
+          # inherit server admin corteza;
+        } // mergeFlakes [
+          (import ./admin/default.nix {inherit dream2nix system pkgs admin-src; })
+          (import ./workflow/default.nix {inherit dream2nix system pkgs; })
+        ];
       devShells.x86_64-linux.default = pkgs.mkShell { };
       defaultPackage.x86_64-linux = self.packages.x86_64-linux.corteza;
     };
