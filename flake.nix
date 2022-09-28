@@ -16,14 +16,14 @@
       workflow-src.url = "github:cortezaproject/corteza-webapp-workflow/2022.3.4";
       workflow-src.flake = false;
 
-      one.url = "github:cortezaproject/corteza-webapp-one";
-      one.flake = false;
+      one-src.url = "github:cortezaproject/corteza-webapp-one/2022.3.4";
+      one-src.flake = false;
 
       admin-src.url = "github:cortezaproject/corteza-webapp-admin/2022.3.4";
       admin-src.flake = false;
     };
 
-  outputs = { self, nixpkgs, admin-src, dream2nix, workflow-src, compose-src, ... }@inputs:
+  outputs = { self, nixpkgs, admin-src, dream2nix, workflow-src, compose-src, one-src, ... }@inputs:
     let
       pkgs = nixpkgs.legacyPackages.${system};
       system = "x86_64-linux";
@@ -57,6 +57,7 @@
           (import ./admin/default.nix { inherit dream2nix system pkgs admin-src; })
           (import ./workflow/default.nix { inherit dream2nix system pkgs workflow-src; })
           (import ./compose/default.nix { inherit dream2nix system pkgs compose-src; })
+          (import ./one/default.nix { inherit dream2nix system pkgs one-src; })
         ];
       devShells.x86_64-linux.default = pkgs.mkShell { };
       # defaultPackage.x86_64-linux = self.packages.x86_64-linux.corteza;

@@ -13,4 +13,3 @@ rec {
     tar -xzmokf ${workflow} --directory=$out/webapp/workflow
   '';
 }
-

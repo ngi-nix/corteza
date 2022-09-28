@@ -9,7 +9,7 @@ dream2nix.lib.makeFlakeOutputs
     # (see docs for override system below)
     packageOverrides = {
       # name of the package
-      corteza-webapp-admin = {
+      corteza-webapp-compose = {
         # name the override
         add-pre-build-steps =
           let

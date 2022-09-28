@@ -230,18 +230,19 @@
         "type": "github"
       }
     },
-    "one": {
+    "one-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1662467340,
-        "narHash": "sha256-BFaixKkHT0JaLC0EzFQ3iAZ0fITYfUkgX0byQWxX2JA=",
+        "lastModified": 1658928678,
+        "narHash": "sha256-4PDyLNQVOVS2Au1TTyA2hepS7DITnLRu1ftJCSzbrBY=",
         "owner": "cortezaproject",
         "repo": "corteza-webapp-one",
-        "rev": "b03ee676477edf72df5a7a45746b21a926eab293",
+        "rev": "7372dcb4092edd3182bbe02326736abe94cb5376",
         "type": "github"
       },
       "original": {
         "owner": "cortezaproject",
+        "ref": "2022.3.4",
         "repo": "corteza-webapp-one",
         "type": "github"
       }
@@ -294,7 +295,7 @@
         "compose-src": "compose-src",
         "dream2nix": "dream2nix",
         "nixpkgs": "nixpkgs_2",
-        "one": "one",
+        "one-src": "one-src",
         "server": "server",
         "workflow-src": "workflow-src"
       }
