@@ -2,31 +2,32 @@
   # Stolen/borrowed from Corteza forums: Blog post: https://forum.cortezaproject.org/t/nix-custom-build-auth-callback-path-returning-404/252/2
   description = "A very basic flake";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs";
-    dream2nix.url = "github:nix-community/dream2nix";
+  inputs =
+    {
+      nixpkgs.url = "github:nixos/nixpkgs";
+      dream2nix.url = "github:nix-community/dream2nix";
 
-    server.url = "github:cortezaproject/corteza-server";
-    server.flake = false;
+      server.url = "github:cortezaproject/corteza-server";
+      server.flake = false;
 
-    compose.url = "github:cortezaproject/corteza-webapp-compose";
-    compose.flake = false;
+      compose-src.url = "github:cortezaproject/corteza-webapp-compose/2022.3.4";
+      compose-src.flake = false;
 
-    workflow-src.url = "github:cortezaproject/corteza-webapp-workflow";
-    workflow-src.flake = false;
+      workflow-src.url = "github:cortezaproject/corteza-webapp-workflow/2022.3.4";
+      workflow-src.flake = false;
 
-    one.url = "github:cortezaproject/corteza-webapp-one";
-    one.flake = false;
+      one.url = "github:cortezaproject/corteza-webapp-one";
+      one.flake = false;
 
-    admin-src.url = "github:cortezaproject/corteza-webapp-admin/2022.3.4";
-    admin-src.flake = false;
-  };
+      admin-src.url = "github:cortezaproject/corteza-webapp-admin/2022.3.4";
+      admin-src.flake = false;
+    };
 
-  outputs = { self, nixpkgs, admin-src, dream2nix, ... }@inputs:
+  outputs = { self, nixpkgs, admin-src, dream2nix, workflow-src, compose-src, ... }@inputs:
     let
       pkgs = nixpkgs.legacyPackages.${system};
       system = "x86_64-linux";
-      mergeFlakes = with builtins; foldl' (a: b: a // b.packages.x86_64-linux) {};
+      mergeFlakes = with builtins; foldl' (a: b: a // b.packages.x86_64-linux) { };
     in
     {
       packages.x86_64-linux = with pkgs;
@@ -53,10 +54,11 @@
         {
           # inherit server admin corteza;
         } // mergeFlakes [
-          (import ./admin/default.nix {inherit dream2nix system pkgs admin-src; })
-          (import ./workflow/default.nix {inherit dream2nix system pkgs; })
+          (import ./admin/default.nix { inherit dream2nix system pkgs admin-src; })
+          (import ./workflow/default.nix { inherit dream2nix system pkgs workflow-src; })
+          (import ./compose/default.nix { inherit dream2nix system pkgs compose-src; })
         ];
       devShells.x86_64-linux.default = pkgs.mkShell { };
-      defaultPackage.x86_64-linux = self.packages.x86_64-linux.corteza;
+      # defaultPackage.x86_64-linux = self.packages.x86_64-linux.corteza;
     };
 }
