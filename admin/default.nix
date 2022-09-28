@@ -1,6 +1,6 @@
 { admin-src, dream2nix, system, pkgs }:
 
-  let
+let
   outputs = dream2nix.lib.makeFlakeOutputs
     {
       systems = [ system ];
@@ -27,6 +27,6 @@
       };
     };
 
-    in {
-    inherit (outputs.packages) admin;
-}
+in
+outputs.packages
+

@@ -42,7 +42,7 @@
 
           admin = import ./admin/default.nix {inherit dream2nix system pkgs admin-src; };
           
-          # workflow = import ./workflow/default.nix {inherit dream2nix system pkgs; };
+          workflow = import ./workflow/default.nix {inherit dream2nix system pkgs; };
 
           corteza = pkgs.callPackage ./corteza params;
 
