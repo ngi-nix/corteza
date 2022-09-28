@@ -42,17 +42,14 @@
           params = { inherit meta version server one admin compose workflow inputs; };
           server = pkgs.callPackage ./server params;
 
-
-          # workflow = import ./workflow/default.nix {inherit dream2nix system pkgs; };
-
-          # corteza = pkgs.callPackage ./corteza params;
+          corteza = pkgs.callPackage ./corteza params;
 
           # privacy app missing
           # reporter app missing
           # discovery app missing
         in
         {
-          # inherit server admin corteza;
+          inherit server corteza;
         } // mergeFlakes [
           (import ./admin/default.nix { inherit dream2nix system pkgs admin-src; })
           (import ./workflow/default.nix { inherit dream2nix system pkgs workflow-src; })
@@ -60,6 +57,6 @@
           (import ./one/default.nix { inherit dream2nix system pkgs one-src; })
         ];
       devShells.x86_64-linux.default = pkgs.mkShell { };
-      # defaultPackage.x86_64-linux = self.packages.x86_64-linux.corteza;
+      defaultPackage.x86_64-linux = self.packages.x86_64-linux.corteza;
     };
 }
