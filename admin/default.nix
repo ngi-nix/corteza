@@ -20,6 +20,9 @@ dream2nix.lib.makeFlakeOutputs
           {
             # update attributes
             buildInputs = old: old ++ [ git-tag ];
+            preBuild = ''
+            ls -hla
+            '';
           };
       };
     };
